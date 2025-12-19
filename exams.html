@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse all available test series for competitive exams">
+    <title>All Exams - ExamMaster</title>
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='75' font-size='70' text-anchor='middle'>📚</text></svg>" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='75' font-size='70' text-anchor='middle'>📚</text></svg>">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body class="exams-page">
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="header-logo">📚 ExamMaster</a>
+            <nav class="header-nav">
+                <ul class="nav-list">
+                    <li class="nav-item nav-item-dropdown">
+                        <a href="#" class="nav-link">Home <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: 0.25rem;"></i></a>
+                        <ul class="nav-dropdown">
+                            <li><a href="index.html" class="nav-dropdown-link">Full View</a></li>
+                            <li><a href="home-simple.html" class="nav-dropdown-link">Quick View</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="exams.html" class="nav-link active">Exams</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="theme-toggle">🌙</button>
+                <a href="login.html" class="btn btn-secondary btn-sm">Login</a>
+                <a href="register.html" class="btn btn-primary btn-sm">Sign Up</a>
+                <button class="mobile-menu-toggle">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-menu">
+        <button class="mobile-menu-close">×</button>
+        <nav>
+            <ul class="mobile-nav-list">
+                <li class="mobile-nav-item">
+                    <a href="#" class="mobile-nav-link">Home</a>
+                    <ul class="mobile-nav-sublist">
+                        <li><a href="index.html" class="mobile-nav-link">Full View</a></li>
+                        <li><a href="home-simple.html" class="mobile-nav-link">Quick View</a></li>
+                    </ul>
+                </li>
+                <li class="mobile-nav-item"><a href="exams.html" class="mobile-nav-link active">Exams</a></li>
+                <li class="mobile-nav-item"><a href="about.html" class="mobile-nav-link">About</a></li>
+                <li class="mobile-nav-item"><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+            </ul>
+            <div class="mobile-nav-actions">
+                <a href="login.html" class="btn btn-secondary btn-block">Login</a>
+                <a href="register.html" class="btn btn-primary btn-block">Sign Up</a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Page Header -->
+    <section class="section-sm" style="background: var(--gradient-hero); color: white; text-align: center;">
+        <div class="container">
+            <h1 style="color: white;">All Test Series</h1>
+            <p style="color: rgba(255, 255, 255, 0.95);">Explore our comprehensive collection of mock tests for
+                competitive exams</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="section">
+        <div class="container">
+            <div class="d-flex" style="gap: 2rem; align-items: flex-start;">
+
+                <!-- Filters Sidebar (Desktop) -->
+                <aside class="hide-mobile hide-tablet" style="width: 280px; flex-shrink: 0;">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 style="margin-bottom: 1.5rem;">Filters</h3>
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="margin-bottom: 1rem; font-size: 1rem;">Category</h4>
+                                <label class="form-checkbox" style="display: block; margin-bottom: 0.5rem;">
+                                    <input type="checkbox" name="category" value="UPSC">
+                                    <span class="checkmark"></span>
+                                    UPSC
+                                </label>
+                                <label class="form-checkbox" style="display: block; margin-bottom: 0.5rem;">
+                                    <input type="checkbox" name="category" value="SSC">
+                                    <span class="checkmark"></span>
+                                    SSC
+                                </label>
+                                <label class="form-checkbox" style="display: block; margin-bottom: 0.5rem;">
+                                    <input type="checkbox" name="category" value="Banking">
+                                    <span class="checkmark"></span>
+                                    Banking
+                                </label>
+                                <label class="form-checkbox" style="display: block; margin-bottom: 0.5rem;">
+                                    <input type="checkbox" name="category" value="Railway">
+                                    <span class="checkmark"></span>
+                                    Railway
+                                </label>
+                                <label class="form-checkbox" style="display: block; margin-bottom: 0.5rem;">
+                                    <input type="checkbox" name="category" value="GATE">
+                                    <span class="checkmark"></span>
+                                    GATE
+                                </label>
+                            </div>
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="margin-bottom: 1rem; font-size: 1rem;">Level</h4>
+                                <label class="form-checkbox" style="display: block; margin-bottom: 0.5rem;">
+                                    <input type="checkbox" name="level" value="Beginner">
+                                    <span class="checkmark"></span>
+                                    Beginner
+                                </label>
+                                <label class="form-checkbox" style="display: block; margin-bottom: 0.5rem;">
+                                    <input type="checkbox" name="level" value="Intermediate">
+                                    <span class="checkmark"></span>
+                                    Intermediate
+                                </label>
+                                <label class="form-checkbox" style="display: block; margin-bottom: 0.5rem;">
+                                    <input type="checkbox" name="level" value="Advanced">
+                                    <span class="checkmark"></span>
+                                    Advanced
+                                </label>
+                            </div>
+
+                            <button id="clearFilters" class="btn btn-outline btn-block">Clear Filters</button>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Main Content Area -->
+                <div style="flex: 1;">
+
+                    <!-- Search & Sort Bar -->
+                    <div style="margin-bottom: 2rem;">
+                        <div
+                            style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; justify-content: space-between;">
+                            <input type="text" id="examSearch" class="form-control" placeholder="Search exams..."
+                                style="flex: 1; min-width: 250px;">
+                            <select id="sortExams" class="form-control" style="width: 200px;">
+                                <option value="popularity">Most Popular</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                                <option value="rating">Highest Rated</option>
+                                <option value="newest">Newest</option>
+                            </select>
+                        </div>
+                        <div id="resultsCount"
+                            style="margin-top: 1rem; color: var(--color-text-secondary); font-size: 0.875rem;"></div>
+                    </div>
+
+                    <!-- Exams Grid -->
+                    <div id="examsGrid" class="grid-3"></div>
+
+                    <!-- Empty State -->
+                    <div id="emptyState" style="display: none; text-align: center; padding: 4rem 0;">
+                        <div style="font-size: 4rem; margin-bottom: 1rem;">📭</div>
+                        <h3>No exams found</h3>
+                        <p style="color: var(--color-text-secondary);">Try adjusting your search or filters</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                    <span style="font-size: 1.75rem;">📚</span>
+                    <h3 class="footer-heading" style="margin: 0;">ExamMaster</h3>
+                </div>
+                <p class="footer-text">Your trusted partner for competitive exam preparation.</p>
+                <div class="footer-social">
+                    <a href="#" target="_blank" class="social-icon" style="background: #1877F2;"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a href="#" target="_blank" class="social-icon" style="background: #1DA1F2;"><i
+                            class="fab fa-twitter"></i></a>
+                    <a href="#" target="_blank" class="social-icon" style="background: #E4405F;"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank" class="social-icon" style="background: #0A66C2;"><i
+                            class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-heading">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html" class="footer-link">Home</a></li>
+                    <li><a href="exams.html" class="footer-link">All Exams</a></li>
+                    <li><a href="about.html" class="footer-link">About Us</a></li>
+                    <li><a href="contact.html" class="footer-link">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-heading">Categories</h3>
+                <ul class="footer-links">
+                    <li><a href="exams.html?category=UPSC" class="footer-link">UPSC</a></li>
+                    <li><a href="exams.html?category=SSC" class="footer-link">SSC</a></li>
+                    <li><a href="exams.html?category=Banking" class="footer-link">Banking</a></li>
+                    <li><a href="exams.html?category=Railway" class="footer-link">Railway</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-heading">Contact</h3>
+                <p class="footer-text">📧 support@exammaster.com<br>📞 +91 1234567890<br>📍 New Delhi, India</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copyright">© 2025 ExamMaster. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/exams.js"></script>
+</body>
+
+</html>

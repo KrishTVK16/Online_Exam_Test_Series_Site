@@ -1,0 +1,102 @@
+create the new website and in design side i need new unique design for each every pages. Don't copy the design to previous web projects.
+Glass morphism;
+Tailwind CSS blur utilities-Dashboards, Login/Register pages, Hero sections.
+Neomorphism (Soft 3D Effect);
+SCSS / Tailwind with custom shadows-Product pages, Card UIs, Profile pages.
+Modern Grid + Flex Layout;
+CSS Grid + Flexbox-Classified ads listing, Categories, Footer, Image gallery.
+Dark Mode + Neon Accent;
+Tailwind, Dark theme based on the website name
+BEST TOOL FOR DESIGN-Figma → BEST for UI/UX design
+TEXT FONTS;
+"Google Fonts" Based in the webpage.
+"TAB AND MOBILE VIEW PROBILES"
+"Check all HTML, CSS, and responsive files. Fix all mobile and tablet responsiveness issues. Ensure no element goes outside the screen on any device. Convert all fixed widths into responsive widths. Make images fully responsive (max-width: 100%, height: auto). Ensure Bootstrap grid wraps properly. Fix overflow caused by long text, large padding, large margin, or fixed pixel values. Add proper breakpoints in responsive.css for 320px, 375px, 425px, 768px, and 1024px screens. Make buttons, cards, grids, forms, and layout adjust perfectly for mobile and tablet. Improve spacing, alignment, and stacking order. Do not change the design style—only fix responsiveness issues."
+I want you to fully optimize my entire website project.
+Fix ALL alignment issues, spacing issues, text issues, image issues, and responsiveness problems across ALL pages.
+This prompt must be applied to every project and every page.
+===========================================================
+1. CENTER ALIGNMENT (HEADINGS, TEXT, BUTTONS)
+===========================================================
+• All headings must be centered.
+• All text content must be centered where needed.
+• All buttons must be centered inside sections, cards, and containers.
+• Maintain clean spacing above and below text + buttons.
+• Ensure alignment stays perfect on mobile and tablet.
+===========================================================
+2. IMAGE ALIGNMENT + SAME SIZE FIX
+===========================================================
+• All images must be centered and properly aligned.
+• Images and text inside cards must have matching heights.
+• Image containers must auto-adjust based on text length.
+• Use object-fit: cover for proper scaling without distortion.
+• All cards (services, products, blog, listings) must have equal height.
+===========================================================
+3. RESPONSIVE DESIGN (MOBILE + TABLET)
+===========================================================
+Make the ENTIRE website fully responsive on:
+• Mobile (320px, 375px, 425px)
+• Tablet (600px, 768px, 820px)
+Required tasks:
+• Headings scale properly.
+• Images resize smoothly.
+• Text content reflows cleanly.
+• Buttons remain centered on all screen sizes.
+• No horizontal scroll / overflow.
+• No layout breaking on any page.
+• Every section must look balanced on mobile/tablet.
+===========================================================
+4. FOOTER FIX (NO ALIGNMENT PROBLEMS)
+===========================================================
+• Footer alignment must be perfect on all screens.
+• Center icons, text, links, and copyright.
+• Fix padding, spacing, and width issues.
+• Footer must not break, overflow, or misalign on small screens.
+===========================================================
+5. ADD FAVICON TO ALL PAGES
+===========================================================
+Add this code to EVERY HTML page:
+<link rel="icon" href="assets/img/favicon.png" type="image/png">
+Ensure favicon loads on:
+• Home page
+• Inner pages
+• Admin pages
+• Login/Register pages
+===========================================================
+6. LOGIN & REGISTER PAGE FIXES
+===========================================================
+• Add brand name + brand logo at the top of login and register pages.
+• Center the entire form properly.
+• Add “Login with Google” and “Login with Facebook” buttons.
+• DO NOT show the menu bar on login or register pages.
+• Make login/register UI fully responsive on mobile and tablet.
+===========================================================
+7. REMOVE MENU BAR FROM LOGIN/REGISTER PAGES
+===========================================================
+• Completely remove header/navigation bar from login/register pages.
+• Only show: Logo + Brand name + Form + Social login buttons.
+===========================================================
+8. GLOBAL LAYOUT IMPROVEMENTS
+===========================================================
+• Fix spacing between all major sections across the website.
+• Make containers consistent in width.
+• Standardize card layout using CSS Grid or Flexbox.
+• Remove unused CSS & merge duplicate classes.
+• Clean and semantic HTML structure for SEO.
+• Better heading hierarchy (H1 → H2 → H3 → etc.)
+===========================================================
+9. BUTTON & UI COMPONENT FIXES
+===========================================================
+• Ensure buttons are equal-sized and centered.
+• Improve hover effects and transitions.
+• Fix modals, sliders, FAQ accordions if misaligned.
+• Ensure cards do not shrink or break layout.
+===========================================================
+10. FINAL POLISH (PROFESSIONAL QUALITY)
+===========================================================
+• Make the entire website look modern, clean, centered, and professional.
+• No broken sections, no misalignment, no inconsistencies.
+• Website must look perfect on all devices.
+• Every page must follow the same alignment and design system.
+THIS PROMPT MUST BE FOLLOWED 100%.
+Apply all fixes across the FULL WEBSITE project.

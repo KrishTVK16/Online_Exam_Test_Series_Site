@@ -1,0 +1,605 @@
+/* ===================================
+   ONLINE EXAM TEST SERIES WEBSITE
+   Responsive Styles (Mobile-First)
+   =================================== */
+
+/* ===================================
+   DESKTOP LARGE (Min-width: 1100px)
+   =================================== */
+
+@media (min-width: 1100px) {
+    /* Categories Grid 3x3 - Always 3 columns at 1100px and above */
+    .categories-grid-3x3 {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 1.5rem !important;
+    }
+}
+
+/* ===================================
+   TABLET LANDSCAPE (Min-width: 768px, Max-width: 1099px)
+   =================================== */
+
+@media (min-width: 768px) and (max-width: 1099px) {
+    /* Categories Grid 3x3 - 2 columns for tablets */
+    .categories-grid-3x3 {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1.5rem !important;
+    }
+}
+
+/* ===================================
+   TABLET (Max-width: 1023px)
+   =================================== */
+
+@media (max-width: 1023px) {
+
+    /* Typography Adjustments */
+    h1 {
+        font-size: var(--font-size-4xl);
+    }
+
+    h2 {
+        font-size: var(--font-size-3xl);
+    }
+
+    h3 {
+        font-size: var(--font-size-xl);
+    }
+
+    /* Spacing */
+    .section {
+        padding: var(--spacing-3xl) 0;
+    }
+
+    /* Header & Navigation */
+    .header-nav {
+        display: none;
+    }
+
+    /* Hide dropdown on mobile - it's in mobile menu instead */
+    .nav-dropdown {
+        display: none !important;
+    }
+
+    /* Hide Login/Sign Up buttons from header on mobile - they show in mobile menu instead */
+    .header-actions .btn {
+        display: none;
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    /* Grid Adjustments */
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Footer */
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-column:nth-child(2) {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ===================================
+   MOBILE LANDSCAPE (Max-width: 767px)
+   =================================== */
+
+@media (max-width: 767px) {
+
+    /* Typography */
+    h1 {
+        font-size: var(--font-size-3xl);
+    }
+
+    h2 {
+        font-size: var(--font-size-2xl);
+    }
+
+    h3 {
+        font-size: var(--font-size-lg);
+    }
+
+    p {
+        font-size: var(--font-size-sm);
+    }
+
+    /* Spacing */
+    .section {
+        padding: var(--spacing-2xl) 0;
+    }
+
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+
+    /* Header */
+    .header-container {
+        padding: var(--spacing-sm);
+    }
+
+    .header-logo {
+        font-size: var(--font-size-lg);
+    }
+
+    .header-logo img {
+        height: 32px;
+    }
+
+    /* Buttons */
+    .btn {
+        padding: 0.6rem 1.5rem;
+        font-size: var(--font-size-sm);
+    }
+
+    .btn-lg {
+        padding: 0.75rem 2rem;
+        font-size: var(--font-size-base);
+    }
+
+    .btn-sm {
+        padding: 0.4rem 1rem;
+        font-size: var(--font-size-xs);
+    }
+
+    /* Cards */
+    .card-body {
+        padding: var(--spacing-md);
+    }
+
+    .card-title {
+        font-size: var(--font-size-lg);
+    }
+
+    .card-text {
+        font-size: var(--font-size-sm);
+    }
+
+    /* Grid Adjustments */
+    .grid-4,
+    .grid-3,
+    .grid-2 {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    /* Categories Grid 3x3 - Responsive */
+    .categories-grid-3x3 {
+        grid-template-columns: 1fr !important;
+        gap: var(--spacing-md) !important;
+    }
+
+    /* Hero Section Responsive - Two Column Layout */
+    .section .container > div[style*="grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+
+    .section .container > div[style*="grid-template-columns: 1fr 1fr"] h1 {
+        font-size: 2.5rem !important;
+        line-height: 1.2 !important;
+    }
+
+    .section .container > div[style*="grid-template-columns: 1fr 1fr"] h1 span {
+        font-size: 2.75rem !important;
+    }
+
+    .section .container > div[style*="grid-template-columns: 1fr 1fr"] p {
+        font-size: 1rem !important;
+    }
+
+    /* Book cover responsive */
+    .section .container > div[style*="grid-template-columns: 1fr 1fr"] > div:last-child > div > div[style*="width: 350px"] {
+        width: 100% !important;
+        max-width: 300px !important;
+        margin: 0 auto !important;
+    }
+
+    /* Footer */
+    .footer {
+        padding: var(--spacing-2xl) 0 var(--spacing-lg);
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+
+    .footer-column:nth-child(2) {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .footer-social {
+        justify-content: flex-start;
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .stat-card {
+        padding: var(--spacing-lg);
+    }
+
+    .stat-number {
+        font-size: var(--font-size-3xl);
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+        width: 85%;
+    }
+
+    /* Modal */
+    .modal-content {
+        width: 95%;
+        padding: var(--spacing-lg);
+    }
+
+    .modal-title {
+        font-size: var(--font-size-xl);
+    }
+
+    /* Forms */
+    .form-control {
+        padding: 0.6rem 0.875rem;
+        font-size: var(--font-size-sm);
+    }
+}
+
+/* ===================================
+   MOBILE PORTRAIT (Max-width: 424px)
+   =================================== */
+
+@media (max-width: 424px) {
+
+    /* Typography */
+    h1 {
+        font-size: var(--font-size-2xl);
+    }
+
+    h2 {
+        font-size: var(--font-size-xl);
+    }
+
+    h3 {
+        font-size: var(--font-size-lg);
+    }
+
+    /* Spacing */
+    .section {
+        padding: var(--spacing-xl) 0;
+    }
+
+    /* Header */
+    .header-logo {
+        font-size: var(--font-size-base);
+    }
+
+    .header-logo img {
+        height: 28px;
+    }
+
+    /* Buttons */
+    .btn {
+        padding: 0.5rem 1.25rem;
+        font-size: var(--font-size-xs);
+    }
+
+    .btn-lg {
+        padding: 0.6rem 1.5rem;
+        font-size: var(--font-size-sm);
+    }
+
+    /* Cards */
+    .card-body {
+        padding: var(--spacing-sm);
+    }
+
+    .card-title {
+        font-size: var(--font-size-base);
+    }
+
+    .card-img {
+        height: 160px;
+    }
+
+    .card-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-sm);
+    }
+
+    /* Stats */
+    .stat-number {
+        font-size: var(--font-size-2xl);
+    }
+
+    .stat-icon {
+        font-size: var(--font-size-3xl);
+    }
+
+    /* Footer */
+    .footer-heading {
+        font-size: var(--font-size-base);
+    }
+
+    .footer-text,
+    .footer-link {
+        font-size: var(--font-size-xs);
+    }
+
+    .social-icon {
+        width: 36px;
+        height: 36px;
+        font-size: var(--font-size-base);
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+        width: 90%;
+        padding: var(--spacing-lg);
+    }
+
+    .mobile-nav-link {
+        font-size: var(--font-size-base);
+        padding: var(--spacing-sm);
+    }
+}
+
+/* ===================================
+   SMALL MOBILE (Max-width: 374px)
+   =================================== */
+
+@media (max-width: 374px) {
+
+    /* Typography */
+    h1 {
+        font-size: var(--font-size-xl);
+    }
+
+    h2 {
+        font-size: var(--font-size-lg);
+    }
+
+    h3 {
+        font-size: var(--font-size-base);
+    }
+
+    /* Container */
+    .container {
+        padding: 0 var(--spacing-xs);
+    }
+
+    /* Header */
+    .header-container {
+        padding: var(--spacing-xs);
+    }
+
+    .header-logo {
+        font-size: var(--font-size-sm);
+    }
+
+    .header-logo img {
+        height: 24px;
+    }
+
+    .theme-toggle {
+        font-size: var(--font-size-lg);
+        padding: var(--spacing-xs);
+    }
+
+    .mobile-menu-toggle {
+        font-size: var(--font-size-xl);
+        padding: var(--spacing-xs);
+    }
+
+    /* Buttons */
+    .btn {
+        padding: 0.4rem 1rem;
+        font-size: var(--font-size-xs);
+    }
+
+    /* Cards */
+    .card-img {
+        height: 140px;
+    }
+
+    .card-body {
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+
+    .card-title {
+        font-size: var(--font-size-sm);
+    }
+
+    .card-text {
+        font-size: var(--font-size-xs);
+    }
+
+    .card-badge {
+        font-size: 0.65rem;
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+
+    /* Stats */
+    .stat-card {
+        padding: var(--spacing-md);
+    }
+
+    .stat-number {
+        font-size: var(--font-size-xl);
+    }
+
+    .stat-icon {
+        font-size: var(--font-size-2xl);
+    }
+
+    .stat-label {
+        font-size: var(--font-size-xs);
+    }
+
+    /* Footer */
+    .footer {
+        padding: var(--spacing-xl) 0 var(--spacing-md);
+    }
+
+    .footer-container {
+        gap: var(--spacing-lg);
+    }
+
+    .footer-copyright {
+        font-size: var(--font-size-xs);
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+        width: 95%;
+        padding: var(--spacing-md);
+    }
+
+    .mobile-nav-link {
+        font-size: var(--font-size-sm);
+    }
+
+    /* Modal */
+    .modal-content {
+        padding: var(--spacing-md);
+    }
+
+    .modal-title {
+        font-size: var(--font-size-lg);
+    }
+}
+
+/* ===================================
+   DESKTOP - LARGE (Min-width: 1440px)
+   =================================== */
+
+@media (min-width: 1440px) {
+
+    /* Typography */
+    h1 {
+        font-size: 3.5rem;
+    }
+
+    h2 {
+        font-size: 2.75rem;
+    }
+
+    /* Container */
+    .container {
+        max-width: var(--container-max);
+    }
+
+    /* Spacing */
+    .section-lg {
+        padding: var(--spacing-5xl) 0 var(--spacing-5xl);
+    }
+
+    /* Cards */
+    .card-img {
+        height: 240px;
+    }
+}
+
+/* ===================================
+   RESPONSIVE UTILITIES
+   =================================== */
+
+/* Hide on Mobile */
+@media (max-width: 767px) {
+    .hide-mobile {
+        display: none !important;
+    }
+}
+
+/* Hide on Tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .hide-tablet {
+        display: none !important;
+    }
+}
+
+/* Hide on Desktop */
+@media (min-width: 1024px) {
+    .hide-desktop {
+        display: none !important;
+    }
+}
+
+/* Show only on Mobile */
+.show-mobile {
+    display: none !important;
+}
+
+@media (max-width: 767px) {
+    .show-mobile {
+        display: block !important;
+    }
+}
+
+/* Show only on Tablet */
+.show-tablet {
+    display: none !important;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .show-tablet {
+        display: block !important;
+    }
+}
+
+/* Show only on Desktop */
+.show-desktop {
+    display: none !important;
+}
+
+@media (min-width: 1024px) {
+    .show-desktop {
+        display: block !important;
+    }
+}
+
+/* ===================================
+   PRINT STYLES
+   =================================== */
+
+@media print {
+
+    .header,
+    .footer,
+    .mobile-menu,
+    .mobile-menu-overlay,
+    .btn,
+    .theme-toggle {
+        display: none !important;
+    }
+
+    body {
+        font-size: 12pt;
+        color: #000;
+        background: #fff;
+    }
+
+    .section {
+        page-break-inside: avoid;
+    }
+}

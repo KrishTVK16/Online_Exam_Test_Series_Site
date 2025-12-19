@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact ExamMaster for any queries or support">
+    <title>Contact Us - ExamMaster</title>
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='75' font-size='70' text-anchor='middle'>📚</text></svg>" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='75' font-size='70' text-anchor='middle'>📚</text></svg>">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        .contact-hero {
+            background: var(--gradient-hero);
+            color: white;
+            text-align: center;
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .contact-hero h1 {
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-hero p {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.25rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-card {
+            background: var(--color-bg-secondary);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-xl);
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        body:not(.dark-mode) .contact-card {
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        body.dark-mode .contact-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .contact-card:hover::before {
+            left: 100%;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            border-color: var(--color-primary);
+        }
+
+        body:not(.dark-mode) .contact-card:hover {
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .contact-card-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+
+        .contact-card:hover .contact-card-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .contact-card h3 {
+            color: var(--color-text-primary);
+            margin-bottom: 1rem;
+            transition: color var(--transition-base);
+        }
+
+        .contact-card p {
+            color: var(--color-text-secondary);
+            margin-bottom: 1rem;
+            transition: color var(--transition-base);
+        }
+
+        .contact-card a {
+            color: var(--color-primary);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .contact-card a:hover {
+            color: var(--color-primary-dark);
+            transform: translateX(5px);
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .grid-4 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .grid-4 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .contact-form-container {
+            background: var(--color-bg-secondary);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-xl);
+            padding: 2.5rem;
+            transition: all var(--transition-base);
+        }
+
+        body:not(.dark-mode) .contact-form-container {
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        body.dark-mode .contact-form-container {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--color-text-primary);
+            font-weight: 600;
+            transition: color var(--transition-base);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid var(--color-border);
+            border-radius: var(--radius-md);
+            background: var(--color-bg);
+            color: var(--color-text-primary);
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(124, 92, 230, 0.1);
+            transform: translateY(-2px);
+        }
+
+        body:not(.dark-mode) .form-control {
+            background: white;
+        }
+
+        body.dark-mode .form-control {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .form-control::placeholder {
+            color: var(--color-text-secondary);
+        }
+
+        .faq-container {
+            background: var(--color-bg-secondary);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-xl);
+            padding: 2.5rem;
+            transition: all var(--transition-base);
+        }
+
+        body:not(.dark-mode) .faq-container {
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        body.dark-mode .faq-container {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .accordion-item {
+            margin-bottom: 1rem;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        body:not(.dark-mode) .accordion-item {
+            background: white;
+        }
+
+        body.dark-mode .accordion-item {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .accordion-item:hover {
+            border-color: var(--color-primary);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .accordion-header {
+            width: 100%;
+            padding: 1.25rem 1.5rem;
+            background: transparent;
+            border: none;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--color-text-primary);
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .accordion-header:hover {
+            background: var(--color-bg-secondary);
+        }
+
+        .accordion-icon {
+            transition: transform 0.3s;
+            color: var(--color-primary);
+        }
+
+        .accordion-header.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        .accordion-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .accordion-content {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+        }
+
+        .social-section {
+            background: var(--color-bg-secondary);
+            padding: 3rem 0;
+            transition: background-color var(--transition-base);
+        }
+
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            margin: 0 0.5rem;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .floating-element {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 20s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+        }
+
+        .contact-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--color-bg-secondary);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-border);
+            transition: all 0.3s;
+        }
+
+        body:not(.dark-mode) .stat-card {
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        body.dark-mode .stat-card {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: var(--gradient-button);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--color-text-secondary);
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .contact-hero h1 {
+                font-size: 2rem;
+            }
+
+            .contact-card,
+            .contact-form-container,
+            .faq-container {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="header-logo">📚 ExamMaster</a>
+            <nav class="header-nav">
+                <ul class="nav-list">
+                    <li class="nav-item nav-item-dropdown">
+                        <a href="#" class="nav-link">Home <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: 0.25rem;"></i></a>
+                        <ul class="nav-dropdown">
+                            <li><a href="index.html" class="nav-dropdown-link">Full View</a></li>
+                            <li><a href="home-simple.html" class="nav-dropdown-link">Quick View</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="exams.html" class="nav-link">Exams</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link active">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="theme-toggle">🌙</button>
+                <a href="login.html" class="btn btn-secondary btn-sm">Login</a>
+                <a href="register.html" class="btn btn-primary btn-sm">Sign Up</a>
+                <button class="mobile-menu-toggle">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-menu">
+        <button class="mobile-menu-close">×</button>
+        <nav>
+            <ul class="mobile-nav-list">
+                <li class="mobile-nav-item">
+                    <a href="#" class="mobile-nav-link">Home</a>
+                    <ul class="mobile-nav-sublist">
+                        <li><a href="index.html" class="mobile-nav-link">Full View</a></li>
+                        <li><a href="home-simple.html" class="mobile-nav-link">Quick View</a></li>
+                    </ul>
+                </li>
+                <li class="mobile-nav-item"><a href="exams.html" class="mobile-nav-link">Exams</a></li>
+                <li class="mobile-nav-item"><a href="about.html" class="mobile-nav-link">About</a></li>
+                <li class="mobile-nav-item"><a href="contact.html" class="mobile-nav-link active">Contact</a></li>
+            </ul>
+            <div class="mobile-nav-actions">
+                <a href="login.html" class="btn btn-secondary btn-block">Login</a>
+                <a href="register.html" class="btn btn-primary btn-block">Sign Up</a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="contact-hero">
+        <div class="container">
+            <div class="floating-elements">
+                <div class="floating-element" style="top: 10%; left: 10%; font-size: 3rem; animation-delay: 0s;">📧</div>
+                <div class="floating-element" style="top: 20%; right: 15%; font-size: 2.5rem; animation-delay: 2s;">📞</div>
+                <div class="floating-element" style="bottom: 20%; left: 20%; font-size: 2rem; animation-delay: 4s;">💬</div>
+                <div class="floating-element" style="bottom: 10%; right: 10%; font-size: 2.5rem; animation-delay: 6s;">📍</div>
+            </div>
+            <h1 class="animate-on-scroll">Get in Touch</h1>
+            <p class="animate-on-scroll">We're here to help with any questions or concerns. Reach out anytime!</p>
+        </div>
+    </section>
+
+    <!-- Contact Stats -->
+    <section class="section" style="background: var(--color-bg-secondary);">
+        <div class="container">
+            <div class="contact-stats">
+                <div class="stat-card animate-on-scroll">
+                    <div class="stat-number" data-counter="24">0</div>
+                    <div class="stat-label">Hour Support</div>
+                </div>
+                <div class="stat-card animate-on-scroll">
+                    <div class="stat-number" data-counter="2">0</div>
+                    <div class="stat-label">Hour Response</div>
+                </div>
+                <div class="stat-card animate-on-scroll">
+                    <div class="stat-number" data-counter="100">0</div>
+                    <div class="stat-label">% Satisfaction</div>
+                </div>
+                <div class="stat-card animate-on-scroll">
+                    <div class="stat-number" data-counter="50000">0</div>
+                    <div class="stat-label">Happy Students</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form First -->
+    <section class="section">
+        <div class="container">
+            <div class="animate-on-scroll" style="max-width: 800px; margin: 0 auto;">
+                <div class="contact-form-container">
+                    <h2 style="margin-bottom: 1rem; color: var(--color-text-primary); text-align: center;">Send Us a Message</h2>
+                    <p style="color: var(--color-text-secondary); margin-bottom: 2rem; text-align: center;">Fill out the form and we'll get back to you within 24 hours</p>
+                    <form id="contactForm" data-validate>
+                        <div class="form-group">
+                            <label for="name" class="form-label">Your Name</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-control"
+                                placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Subject</label>
+                            <select id="subject" name="subject" class="form-control" required>
+                                <option value="">Select a subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="technical">Technical Support</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="partnership">Partnership</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" name="message" class="form-control" rows="5"
+                                placeholder="Type your message here..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">
+                            <i class="fas fa-paper-plane" style="margin-right: 0.5rem;"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Information Cards (with Follow Us) -->
+    <section class="section" style="background: var(--color-bg-secondary);">
+        <div class="container">
+            <h2 class="text-center" style="margin-bottom: 3rem; color: var(--color-text-primary);">Contact Information</h2>
+            <div class="grid-4" style="margin-bottom: 3rem;">
+                <div class="contact-card animate-on-scroll">
+                    <div class="contact-card-icon">📧</div>
+                    <h3>Email Us</h3>
+                    <p>Send us an email anytime</p>
+                    <a href="mailto:support@exammaster.com">support@exammaster.com</a>
+                </div>
+                <div class="contact-card animate-on-scroll">
+                    <div class="contact-card-icon">📞</div>
+                    <h3>Call Us</h3>
+                    <p>Mon-Sat, 9 AM - 6 PM IST</p>
+                    <a href="tel:+911234567890">+91 1234567890</a>
+                </div>
+                <div class="contact-card animate-on-scroll">
+                    <div class="contact-card-icon">📍</div>
+                    <h3>Visit Us</h3>
+                    <p>Our office location</p>
+                    <a href="https://maps.google.com" target="_blank">New Delhi, India</a>
+                </div>
+                <div class="contact-card animate-on-scroll">
+                    <div class="contact-card-icon">🌐</div>
+                    <h3>Follow Us</h3>
+                    <p>Connect on social media</p>
+                    <div style="display: flex; gap: 0.75rem; justify-content: center; margin-top: 1rem; flex-wrap: wrap;">
+                        <a href="#" target="_blank" class="social-icon" style="background: #1877F2; width: 40px; height: 40px; font-size: 1.125rem;">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" target="_blank" class="social-icon" style="background: #1DA1F2; width: 40px; height: 40px; font-size: 1.125rem;">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" target="_blank" class="social-icon" style="background: #E4405F; width: 40px; height: 40px; font-size: 1.125rem;">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" target="_blank" class="social-icon" style="background: #0A66C2; width: 40px; height: 40px; font-size: 1.125rem;">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section">
+        <div class="container">
+            <div class="animate-on-scroll" style="max-width: 900px; margin: 0 auto;">
+                <div class="faq-container">
+                    <h2 style="margin-bottom: 1rem; color: var(--color-text-primary); text-align: center;">Frequently Asked Questions</h2>
+                    <p style="color: var(--color-text-secondary); margin-bottom: 2rem; text-align: center;">Quick answers to common questions</p>
+                    <div class="accordion">
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                <span>How do I enroll in a test series?</span>
+                                <span class="accordion-icon">▼</span>
+                            </button>
+                            <div class="accordion-body">
+                                <div class="accordion-content">
+                                    Browse our test series, select the one you want, click "Enroll Now" and complete the
+                                    payment. You'll get instant access to all tests.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                <span>Can I access tests on mobile?</span>
+                                <span class="accordion-icon">▼</span>
+                            </button>
+                            <div class="accordion-body">
+                                <div class="accordion-content">
+                                    Yes! Our platform is fully responsive and works seamlessly on all devices - desktop,
+                                    tablet, and mobile.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                <span>What is the validity period?</span>
+                                <span class="accordion-icon">▼</span>
+                            </button>
+                            <div class="accordion-body">
+                                <div class="accordion-content">
+                                    Most of our test series come with 6-12 months validity. The exact duration is
+                                    mentioned on each product page.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                <span>Do you provide solutions?</span>
+                                <span class="accordion-icon">▼</span>
+                            </button>
+                            <div class="accordion-body">
+                                <div class="accordion-content">
+                                    Yes! Every test comes with detailed solutions and explanations for all questions to
+                                    help you understand concepts better.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                <span>Is there a refund policy?</span>
+                                <span class="accordion-icon">▼</span>
+                            </button>
+                            <div class="accordion-body">
+                                <div class="accordion-content">
+                                    We offer a 7-day money-back guarantee if you're not satisfied with the product,
+                                    subject to terms and conditions.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                <span>How can I track my progress?</span>
+                                <span class="accordion-icon">▼</span>
+                            </button>
+                            <div class="accordion-body">
+                                <div class="accordion-content">
+                                    Our dashboard provides detailed analytics including performance trends, weak areas, 
+                                    and improvement suggestions to help you track your progress effectively.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                    <span style="font-size: 1.75rem;">📚</span>
+                    <h3 class="footer-heading" style="margin: 0;">ExamMaster</h3>
+                </div>
+                <p class="footer-text">Your trusted partner for competitive exam preparation.</p>
+                <div class="footer-social">
+                    <a href="#" target="_blank" class="social-icon" style="background: #1877F2;"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a href="#" target="_blank" class="social-icon" style="background: #1DA1F2;"><i
+                            class="fab fa-twitter"></i></a>
+                    <a href="#" target="_blank" class="social-icon" style="background: #E4405F;"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank" class="social-icon" style="background: #0A66C2;"><i
+                            class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-heading">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html" class="footer-link">Home</a></li>
+                    <li><a href="exams.html" class="footer-link">All Exams</a></li>
+                    <li><a href="about.html" class="footer-link">About Us</a></li>
+                    <li><a href="contact.html" class="footer-link">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-heading">Categories</h3>
+                <ul class="footer-links">
+                    <li><a href="exams.html?category=UPSC" class="footer-link">UPSC</a></li>
+                    <li><a href="exams.html?category=SSC" class="footer-link">SSC</a></li>
+                    <li><a href="exams.html?category=Banking" class="footer-link">Banking</a></li>
+                    <li><a href="exams.html?category=Railway" class="footer-link">Railway</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-heading">Contact</h3>
+                <p class="footer-text">📧 support@exammaster.com<br>📞 +91 1234567890<br>📍 New Delhi, India</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copyright">© 2025 ExamMaster. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    <script>
+        // Initialize accordion
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', function () {
+                const isActive = this.classList.contains('active');
+
+                document.querySelectorAll('.accordion-header').forEach(h => {
+                    h.classList.remove('active');
+                    h.nextElementSibling.style.maxHeight = null;
+                });
+
+                if (!isActive) {
+                    this.classList.add('active');
+                    const body = this.nextElementSibling;
+                    body.style.maxHeight = body.scrollHeight + 'px';
+                }
+            });
+        });
+
+        // Initialize counters
+        function initCounters() {
+            const counters = document.querySelectorAll('[data-counter]');
+            
+            const observerOptions = {
+                threshold: 0.5
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+                        animateCounter(entry.target);
+                        entry.target.classList.add('counted');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            counters.forEach(counter => observer.observe(counter));
+        }
+
+        function animateCounter(element) {
+            const target = parseFloat(element.getAttribute('data-counter'));
+            const duration = 2000;
+            const increment = target / (duration / 16);
+            let current = 0;
+            const isDecimal = target % 1 !== 0;
+            
+            const updateCounter = () => {
+                current += increment;
+                if (current < target) {
+                    if (isDecimal) {
+                        element.textContent = current.toFixed(1);
+                    } else {
+                        element.textContent = Math.floor(current).toLocaleString();
+                    }
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    if (isDecimal) {
+                        element.textContent = target.toFixed(1);
+                    } else {
+                        element.textContent = target.toLocaleString();
+                    }
+                }
+            };
+            
+            requestAnimationFrame(updateCounter);
+        }
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', function() {
+            initCounters();
+            
+            // Ensure cards are visible
+            const cards = document.querySelectorAll('.contact-card, .contact-form-container, .faq-container');
+            cards.forEach(card => {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+                card.classList.add('in-view');
+            });
+        });
+
+        // Form submission
+        document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show success message
+            const form = this;
+            const successDiv = document.createElement('div');
+            successDiv.className = 'alert alert-success';
+            successDiv.style.cssText = 'padding: 1rem; background: var(--color-success-olive); color: white; border-radius: var(--radius-md); margin-top: 1rem; text-align: center;';
+            successDiv.innerHTML = '<i class="fas fa-check-circle" style="margin-right: 0.5rem;"></i>Message sent successfully! We\'ll get back to you soon.';
+            
+            form.appendChild(successDiv);
+            
+            // Reset form
+            setTimeout(() => {
+                form.reset();
+                successDiv.remove();
+            }, 3000);
+        });
+    </script>
+</body>
+
+</html>

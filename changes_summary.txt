@@ -1,0 +1,97 @@
+SUMMARY OF ALL CHANGES MADE TO THE APPLICATION
+================================================
+
+1. DROPDOWN MENU ALIGNMENT (TABLET VIEW)
+   - Fixed alignment issues with "Sustainability" and "Get Involved" dropdown menus in tablet view
+   - Changed dropdown positioning from absolute to static within collapsed navbar
+   - Right-aligned dropdown items with proper padding
+   - Made sub-items align linearly with parent dropdown items
+
+2. CARD ALIGNMENT & LAYOUT
+   - Implemented flexbox layout for cards with h-100 class
+   - Ensured equal card heights and consistent content distribution
+   - Aligned card titles (h3) at the same vertical position
+   - Pushed buttons to the bottom of cards using margin-top: auto
+   - Ensured text content aligns consistently across parallel cards
+
+3. NAVIGATION RIGHT ALIGNMENT
+   - Right-aligned all navigation items including dropdowns
+   - Used flexbox with align-items: flex-end for consistent alignment
+   - Maintained nested dropdown structure while right-aligning
+
+4. NAVBAR & BUTTON SIZING (MOBILE/TABLET)
+   - Reduced navbar padding and font sizes in mobile/tablet views
+   - Adjusted button sizes to match navigation link proportions
+   - Made navbar more compact to show more page content
+
+5. SECTION-SPECIFIC TEXT WRAPPING FIXES
+   Applied consistent alignment and font size reductions to prevent text wrapping in:
+
+   a) Waste Management Section
+      - Added id="waste-management" to section
+      - Reduced h3 font sizes across breakpoints (1.2rem → 0.9rem)
+
+   b) Biodiversity Section
+      - Added id="biodiversity" to section
+      - Applied same font size reductions for h3 titles
+
+   c) Effects of Climate Change Section
+      - Added id="effects-climate-change" to section
+      - Applied font size reductions for h3 titles
+
+   d) Global Data Section
+      - Added id="global-data" to section
+      - Reduced font sizes for .lead and .display-4 elements
+
+   e) Recurring Events Section
+      - Added id="recurring-events" to section
+      - Applied font size reductions for h3 titles
+
+   f) Impact Reports Section
+      - Added id="impact-reports" to section
+      - Applied font size reductions with !important flags
+      - Further reduced sizes for longer titles like "Community Engagement"
+
+6. FOOTER IMPROVEMENTS
+   - Added flexbox layout for footer columns
+   - Ensured footer headings align at the same level
+   - Center-aligned the "Quick Links" section (second column)
+   - Improved footer content alignment and spacing
+
+7. TEXT JUSTIFICATION REMOVAL
+   - Removed forced text justification rules that were applying text-align: justify to paragraphs
+   - Restored default text alignment behavior
+
+8. THEME TOGGLE UI (PARTIALLY REVERTED)
+   - Attempted to improve theme toggle styling with:
+     * Better alignment and spacing
+     * Hover effects on labels
+     * Enhanced switch styling
+     * Smooth transitions
+   - User reverted most of these changes, keeping only basic functionality
+
+FILES MODIFIED:
+===============
+1. style.css: Added card flexbox layouts, section-specific font size rules, footer alignment, and text wrapping prevention
+2. responsive.css: Added responsive font size adjustments for all sections across multiple breakpoints (tablet, mobile landscape, mobile portrait, small mobile)
+3. index.html: No direct changes (structure referenced for CSS)
+4. sustainability-topics.html: Added section IDs
+5. climate-change.html: Added section IDs
+6. events.html: Added section IDs
+7. projects.html: Added section IDs for Impact Reports
+
+KEY TECHNICAL APPROACHES USED:
+===============================
+- Flexbox Layout: For card alignment and equal heights
+- CSS Specificity: Using section IDs for targeted styling
+- Responsive Design: Media queries for tablet (1023px), mobile landscape (767px), mobile portrait (424px), and small mobile (374px)
+- Font Size Scaling: Progressive reduction across breakpoints to prevent wrapping
+- !important Flags: Used where needed to override conflicting styles
+
+NOTES:
+======
+- All changes were made with clear comments explaining their purpose
+- Existing code was preserved where possible
+- Changes follow a consistent pattern across similar sections
+- Focus on responsive design and preventing text wrapping while maintaining visual alignment
+

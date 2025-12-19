@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Ace your competitive exams with our comprehensive online test series. Practice tests for UPSC, SSC, Banking, Railway, GATE, and more.">
+    <meta name="keywords"
+        content="online exam, test series, UPSC, SSC, Banking, Railway, GATE, mock tests, practice tests">
+    <title>ExamMaster - Online Exam Test Series | Ace Your Competitive Exams</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='75' font-size='70' text-anchor='middle'>📚</text></svg>" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='75' font-size='70' text-anchor='middle'>📚</text></svg>">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="header-logo">
+                📚 ExamMaster
+            </a>
+
+            <nav class="header-nav">
+                <ul class="nav-list">
+                    <li class="nav-item nav-item-dropdown">
+                        <a href="#" class="nav-link active">Home <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: 0.25rem;"></i></a>
+                        <ul class="nav-dropdown">
+                            <li><a href="index.html" class="nav-dropdown-link active">Full View</a></li>
+                            <li><a href="home-simple.html" class="nav-dropdown-link">Quick View</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="exams.html" class="nav-link">Exams</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+                <a href="dashboard.html" class="btn btn-outline btn-sm">Dashboard</a>
+                <a href="login.html" class="btn btn-secondary btn-sm">Login</a>
+                <a href="register.html" class="btn btn-primary btn-sm">Sign Up</a>
+                <button class="mobile-menu-toggle" aria-label="Open mobile menu">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-menu">
+        <button class="mobile-menu-close" aria-label="Close mobile menu">×</button>
+        <nav>
+            <ul class="mobile-nav-list">
+                <li class="mobile-nav-item">
+                    <a href="#" class="mobile-nav-link active">Home</a>
+                    <ul class="mobile-nav-sublist">
+                        <li><a href="index.html" class="mobile-nav-link active">Full View</a></li>
+                        <li><a href="home-simple.html" class="mobile-nav-link">Quick View</a></li>
+                    </ul>
+                </li>
+                <li class="mobile-nav-item"><a href="exams.html" class="mobile-nav-link">Exams</a></li>
+                <li class="mobile-nav-item"><a href="about.html" class="mobile-nav-link">About</a></li>
+                <li class="mobile-nav-item"><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+            </ul>
+            <div class="mobile-nav-actions">
+                <a href="dashboard.html" class="btn btn-outline btn-block">Dashboard</a>
+                <a href="login.html" class="btn btn-secondary btn-block">Login</a>
+                <a href="register.html" class="btn btn-primary btn-block">Sign Up</a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="section hero-section-full" style="background: var(--color-bg); padding: 6rem 0 8rem; position: relative; overflow: hidden; transition: background-color var(--transition-base);">
+        <!-- Organic Blob Shapes -->
+        <div class="hero-blob hero-blob-1" style="position: absolute; top: -10%; left: -5%; width: 500px; height: 500px; background: #FF8C69; border-radius: 50% 40% 60% 30%; opacity: 0.15; z-index: 0; transform: rotate(45deg); transition: opacity var(--transition-base);"></div>
+        <div class="hero-blob hero-blob-2" style="position: absolute; top: -5%; right: 5%; width: 300px; height: 300px; background: #C8F0E0; border-radius: 40% 60% 30% 50%; opacity: 0.2; z-index: 0; transition: opacity var(--transition-base);"></div>
+        <div class="hero-blob hero-blob-3" style="position: absolute; bottom: 10%; right: 10%; width: 200px; height: 200px; background: #FFFACD; border-radius: 50% 30% 40% 60%; opacity: 0.15; z-index: 0; transition: opacity var(--transition-base);"></div>
+        
+        <div class="container" style="position: relative; z-index: 1;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+                <!-- Left Column - Content -->
+                <div style="text-align: center;">
+                    <h1 style="font-size: 4.5rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 1.5rem; line-height: 1.1; transition: color var(--transition-base);">
+                        Ace Your<br>
+                        <span style="font-size: 5rem;">Competitive Exams</span>
+                    </h1>
+                    <p style="font-size: 1.25rem; color: var(--color-text-secondary); margin-bottom: 2.5rem; line-height: 1.6; max-width: 500px; margin-left: auto; margin-right: auto; transition: color var(--transition-base);">
+                        Comprehensive test series for UPSC, SSC, Banking, Railway, and more. Practice with real exam patterns and detailed solutions—no coding required.
+                    </p>
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+                        <a href="register.html" class="btn btn-lg hero-cta-btn" style="background: #FF8C69; color: white; padding: 1rem 2.5rem; font-size: 1.125rem; font-weight: 600; border: none; border-radius: 8px; display: inline-block; transition: background-color var(--transition-base);">
+                            Get Started
+                        </a>
+                        <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--color-text-secondary); justify-content: center; transition: color var(--transition-base);">
+                            <div style="display: flex; gap: 0.25rem;">
+                                <span style="color: var(--color-success-olive); font-size: 1.25rem; transition: color var(--transition-base);">★★★★★</span>
+                            </div>
+                            <span style="font-size: 0.95rem; color: var(--color-success-olive); transition: color var(--transition-base);">Trusted by over 50,000 students</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column - Video/Visual -->
+                <div style="position: relative;">
+                    <div style="background: var(--gradient-hero); border-radius: 16px; padding: 2rem; box-shadow: 0 20px 60px rgba(0,0,0,0.15); position: relative; overflow: hidden; transition: box-shadow var(--transition-base);">
+                        <div style="aspect-ratio: 16/9; background: var(--color-bg-secondary); border-radius: 12px; display: flex; align-items: center; justify-content: center; position: relative; transition: background-color var(--transition-base);">
+                            <div style="width: 100%; height: 100%; background: linear-gradient(135deg, rgba(122, 79, 125, 0.1) 0%, rgba(176, 122, 91, 0.1) 100%); display: flex; align-items: center; justify-content: center; border-radius: 12px;">
+                                <div style="width: 80px; height: 80px; background: var(--color-success-olive); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 20px rgba(107, 122, 79, 0.4); transition: transform 0.3s ease, background-color var(--transition-base);">
+                                    <span style="color: white; font-size: 2rem; margin-left: 4px;">▶</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hero-badge" style="position: absolute; top: 1rem; right: 1rem; background: var(--color-bg-secondary); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.875rem; color: var(--color-text-primary); font-weight: 600; transition: background-color var(--transition-base), color var(--transition-base);">
+                            Watch Demo
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="section">
+        <div class="container">
+            <div class="stats-grid" data-stagger>
+                <div class="stat-card card-glass">
+                    <div class="stat-icon">👨‍🎓</div>
+                    <div class="stat-number" data-counter="50000">50,000</div>
+                    <div class="stat-label">Students Enrolled</div>
+                </div>
+                <div class="stat-card card-glass">
+                    <div class="stat-icon">📝</div>
+                    <div class="stat-number" data-counter="250">250</div>
+                    <div class="stat-label">Tests Available</div>
+                </div>
+                <div class="stat-card card-glass">
+                    <div class="stat-icon">🏆</div>
+                    <div class="stat-number" data-counter="85">85</div>
+                    <div class="stat-label">% Success Rate</div>
+                </div>
+                <div class="stat-card card-glass">
+                    <div class="stat-icon">🎓</div>
+                    <div class="stat-number" data-counter="120">120</div>
+                    <div class="stat-label">Partner Institutes</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Exams Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="animate-on-scroll">Featured Test Series</h2>
+            <p class="text-center text-secondary animate-on-scroll" style="max-width: 600px; margin: 0 auto 3rem;">
+                Explore our most popular and highly-rated test series designed to help you succeed
+            </p>
+            <div class="featured-exams grid-4" data-stagger></div>
+            <div class="text-center" style="margin-top: 2rem;">
+                <a href="exams.html" class="btn btn-primary btn-lg">View All Exams</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Grid -->
+    <section class="section" style="background: var(--color-bg-secondary);">
+        <div class="container">
+            <h2 class="animate-on-scroll">Explore By Category</h2>
+            <p class="text-center text-secondary animate-on-scroll" style="max-width: 600px; margin: 0 auto 3rem;">
+                Choose from a wide range of competitive exam categories
+            </p>
+            <div class="categories-grid-3x3" data-stagger style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+                <div class="card card-neo animate-on-scroll" style="text-align: center; padding: 2rem;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🏛️</div>
+                    <h3 style="text-align: center;">UPSC</h3>
+                    <p style="text-align: center; color: var(--color-text-secondary);">Civil Services, IAS, IPS</p>
+                    <a href="exams.html?category=UPSC" class="btn btn-outline" style="margin-top: 1rem;">25 Exams</a>
+                </div>
+                <div class="card card-neo animate-on-scroll" style="text-align: center; padding: 2rem;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">📋</div>
+                    <h3 style="text-align: center;">SSC</h3>
+                    <p style="text-align: center; color: var(--color-text-secondary);">CGL, CHSL, MTS</p>
+                    <a href="exams.html?category=SSC" class="btn btn-outline" style="margin-top: 1rem;">30 Exams</a>
+                </div>
+                <div class="card card-neo animate-on-scroll" style="text-align: center; padding: 2rem;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🏦</div>
+                    <h3 style="text-align: center;">Banking</h3>
+                    <p style="text-align: center; color: var(--color-text-secondary);">IBPS, SBI, RBI</p>
+                    <a href="exams.html?category=Banking" class="btn btn-outline" style="margin-top: 1rem;">28 Exams</a>
+                </div>
+                <div class="card card-neo animate-on-scroll" style="text-align: center; padding: 2rem;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🚂</div>
+                    <h3 style="text-align: center;">Railway</h3>
+                    <p style="text-align: center; color: var(--color-text-secondary);">RRB NTPC, Group D</p>
+                    <a href="exams.html?category=Railway" class="btn btn-outline" style="margin-top: 1rem;">22 Exams</a>
+                </div>
+                <div class="card card-neo animate-on-scroll" style="text-align: center; padding: 2rem;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🔬</div>
+                    <h3 style="text-align: center;">GATE</h3>
+                    <p style="text-align: center; color: var(--color-text-secondary);">Engineering Entrance</p>
+                    <a href="exams.html?category=GATE" class="btn btn-outline" style="margin-top: 1rem;">18 Exams</a>
+                </div>
+                <div class="card card-neo animate-on-scroll" style="text-align: center; padding: 2rem;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">💼</div>
+                    <h3 style="text-align: center;">MBA</h3>
+                    <p style="text-align: center; color: var(--color-text-secondary);">CAT, XAT, SNAP</p>
+                    <a href="exams.html?category=MBA" class="btn btn-outline" style="margin-top: 1rem;">15 Exams</a>
+                </div>
+                <div class="card card-neo animate-on-scroll" style="text-align: center; padding: 2rem;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🏥</div>
+                    <h3 style="text-align: center;">Medical</h3>
+                    <p style="text-align: center; color: var(--color-text-secondary);">NEET, AIIMS</p>
+                    <a href="exams.html?category=Medical" class="btn btn-outline" style="margin-top: 1rem;">20 Exams</a>
+                </div>
+                <div class="card card-neo animate-on-scroll" style="text-align: center; padding: 2rem;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">⚙️</div>
+                    <h3 style="text-align: center;">Engineering</h3>
+                    <p style="text-align: center; color: var(--color-text-secondary);">JEE, BITSAT</p>
+                    <a href="exams.html?category=Engineering" class="btn btn-outline" style="margin-top: 1rem;">24 Exams</a>
+                </div>
+                <div class="card card-neo animate-on-scroll" style="text-align: center; padding: 2rem;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">📊</div>
+                    <h3 style="text-align: center;">Defense</h3>
+                    <p style="text-align: center; color: var(--color-text-secondary);">NDA, CDS, AFCAT</p>
+                    <a href="exams.html?category=Defense" class="btn btn-outline" style="margin-top: 1rem;">16 Exams</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="animate-on-scroll">How It Works</h2>
+            <p class="text-center text-secondary animate-on-scroll" style="max-width: 600px; margin: 0 auto 3rem;">
+                Start your exam preparation journey in three simple steps
+            </p>
+            <div class="grid-3" data-stagger>
+                <div class="text-center animate-on-scroll">
+                    <div
+                        style="width: 80px; height: 80px; margin: 0 auto 1.5rem; background: var(--gradient-button); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: white;">
+                        1</div>
+                    <h3 style="text-align: center;">Browse & Select</h3>
+                    <p style="text-align: center; color: var(--color-text-secondary);">Choose from 250+ test series
+                        across multiple categories and exam patterns</p>
+                </div>
+                <div class="text-center animate-on-scroll">
+                    <div
+                        style="width: 80px; height: 80px; margin: 0 auto 1.5rem; background: var(--gradient-button); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: white;">
+                        2</div>
+                    <h3 style="text-align: center;">Enroll & Prepare</h3>
+                    <p style="text-align: center; color: var(--color-text-secondary);">Get instant access to all tests
+                        with detailed syllabus and exam patterns</p>
+                </div>
+                <div class="text-center animate-on-scroll">
+                    <div
+                        style="width: 80px; height: 80px; margin: 0 auto 1.5rem; background: var(--gradient-button); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: white;">
+                        3</div>
+                    <h3 style="text-align: center;">Practice & Excel</h3>
+                    <p style="text-align: center; color: var(--color-text-secondary);">Take tests, analyze performance,
+                        and improve with detailed solutions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section" style="background: var(--color-bg-secondary);">
+        <div class="container">
+            <h2 class="animate-on-scroll">Success Stories</h2>
+            <p class="text-center text-secondary animate-on-scroll" style="max-width: 600px; margin: 0 auto 3rem;">
+                Hear from students who cracked their exams with ExamMaster
+            </p>
+            <div class="grid-3" data-stagger>
+                <div class="card card-glass animate-on-scroll">
+                    <div class="card-body">
+                        <div style="font-size: 2rem; margin-bottom: 1rem;">👤</div>
+                        <p style="font-style: italic; color: var(--color-text-secondary);">"ExamMaster's test series
+                            helped me crack UPSC CSE in my first attempt. The detailed solutions and performance
+                            analytics were game-changers!"</p>
+                        <div style="margin-top: 1.5rem;">
+                            <div style="font-weight: 600; color: var(--color-text-primary);">Priya Sharma</div>
+                            <div style="font-size: 0.875rem; color: var(--color-text-secondary);">UPSC CSE 2024 - AIR 45
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card card-glass animate-on-scroll">
+                    <div class="card-body">
+                        <div style="font-size: 2rem; margin-bottom: 1rem;">👤</div>
+                        <p style="font-style: italic; color: var(--color-text-secondary);">"The SSC CGL mock tests were
+                            exactly like the real exam. Practicing here boosted my confidence and improved my time
+                            management significantly."</p>
+                        <div style="margin-top: 1.5rem;">
+                            <div style="font-weight: 600; color: var(--color-text-primary);">Rahul Kumar</div>
+                            <div style="font-size: 0.875rem; color: var(--color-text-secondary);">SSC CGL 2024 -
+                                Selected</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card card-glass animate-on-scroll">
+                    <div class="card-body">
+                        <div style="font-size: 2rem; margin-bottom: 1rem;">👤</div>
+                        <p style="font-style: italic; color: var(--color-text-secondary);">"Best platform for banking
+                            exams! The all-India rankings helped me understand where I stand and motivated me to work
+                            harder."</p>
+                        <div style="margin-top: 1.5rem;">
+                            <div style="font-weight: 600; color: var(--color-text-primary);">Anjali Verma</div>
+                            <div style="font-size: 0.875rem; color: var(--color-text-secondary);">SBI PO 2024 - Selected
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section" style="background: var(--gradient-hero); color: white; text-align: center;">
+        <div class="container">
+            <h2 class="animate-on-scroll" style="color: white;">Start Your Journey Today</h2>
+            <p class="animate-on-scroll"
+                style="font-size: 1.125rem; color: white; opacity: 0.95; max-width: 600px; margin: 0 auto 2rem;">
+                Join thousands of successful students and ace your competitive exams with confidence
+            </p>
+            <a href="register.html" class="btn btn-lg animate-on-scroll"
+                style="background: white; color: var(--color-accent-purple);">Sign Up For Free</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                    <span style="font-size: 1.75rem;">📚</span>
+                    <h3 class="footer-heading" style="margin: 0;">ExamMaster</h3>
+                </div>
+                <p class="footer-text">Your trusted partner for competitive exam preparation. We provide comprehensive
+                    test series with detailed solutions and performance analytics.</p>
+                <div class="footer-social">
+                    <a href="#" target="_blank" class="social-icon" aria-label="Facebook"
+                        style="background: #1877F2;"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" target="_blank" class="social-icon" aria-label="Twitter" style="background: #1DA1F2;"><i
+                            class="fab fa-twitter"></i></a>
+                    <a href="#" target="_blank" class="social-icon" aria-label="Instagram"
+                        style="background: #E4405F;"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank" class="social-icon" aria-label="LinkedIn"
+                        style="background: #0A66C2;"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-heading">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html" class="footer-link">Home</a></li>
+                    <li><a href="exams.html" class="footer-link">All Exams</a></li>
+                    <li><a href="about.html" class="footer-link">About Us</a></li>
+                    <li><a href="contact.html" class="footer-link">Contact</a></li>
+                    <li><a href="dashboard.html" class="footer-link">My Dashboard</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-heading">Exam Categories</h3>
+                <ul class="footer-links">
+                    <li><a href="exams.html?category=UPSC" class="footer-link">UPSC</a></li>
+                    <li><a href="exams.html?category=SSC" class="footer-link">SSC</a></li>
+                    <li><a href="exams.html?category=Banking" class="footer-link">Banking</a></li>
+                    <li><a href="exams.html?category=Railway" class="footer-link">Railway</a></li>
+                    <li><a href="exams.html?category=GATE" class="footer-link">GATE</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-heading">Contact Us</h3>
+                <p class="footer-text">
+                    📧 support@exammaster.com<br>
+                    📞 +91 1234567890<br>
+                    📍 New Delhi, India
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copyright">© 2025 ExamMaster. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/exams.js"></script>
+</body>
+
+</html>

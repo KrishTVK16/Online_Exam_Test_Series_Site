@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Watch the ExamMaster story - A documentary about our mission to democratize exam preparation">
+    <title>The ExamMaster Story - About Us</title>
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='75' font-size='70' text-anchor='middle'>📚</text></svg>" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='75' font-size='70' text-anchor='middle'>📚</text></svg>">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        .documentary-container {
+            position: relative;
+            min-height: 100vh;
+            background: var(--color-bg);
+            color: var(--color-text-primary);
+            transition: background-color var(--transition-base), color var(--transition-base);
+        }
+
+        /* Light mode - softer cinematic look */
+        body:not(.dark-mode) .documentary-container {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+        }
+
+        /* Dark mode - cinematic dark */
+        body.dark-mode .documentary-container {
+            background: #000;
+            color: white;
+        }
+
+        .documentary-player {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--color-bg);
+            padding: 1.5rem;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-top: 1px solid var(--color-border);
+            transition: background-color var(--transition-base), border-color var(--transition-base);
+        }
+
+        /* Light mode player */
+        body:not(.dark-mode) .documentary-player {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Dark mode player */
+        body.dark-mode .documentary-player {
+            background: rgba(0, 0, 0, 0.95);
+        }
+
+        .player-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .play-pause-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gradient-button);
+            border: none;
+            color: white;
+            font-size: 1.25rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s;
+        }
+
+        .play-pause-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .timeline-scrubber {
+            flex: 1;
+            height: 6px;
+            background: var(--color-border);
+            border-radius: 3px;
+            position: relative;
+            cursor: pointer;
+            transition: background-color var(--transition-base);
+        }
+
+        body:not(.dark-mode) .timeline-scrubber {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark-mode .timeline-scrubber {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .timeline-progress {
+            height: 100%;
+            background: var(--gradient-button);
+            border-radius: 3px;
+            width: 0%;
+            transition: width 0.1s;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 12px;
+            height: 12px;
+            background: var(--color-primary);
+            border-radius: 50%;
+            cursor: pointer;
+            left: 0%;
+            transition: left 0.1s, background-color var(--transition-base);
+        }
+
+        body:not(.dark-mode) .timeline-marker {
+            background: var(--color-primary-dark);
+        }
+
+        body.dark-mode .timeline-marker {
+            background: white;
+        }
+
+        .chapter-markers {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+        }
+
+        .chapter-marker {
+            position: absolute;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: var(--color-border);
+            cursor: pointer;
+            transition: background-color var(--transition-base);
+        }
+
+        body:not(.dark-mode) .chapter-marker {
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        body.dark-mode .chapter-marker {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .chapter-marker.active {
+            background: var(--color-primary);
+            width: 3px;
+        }
+
+        body:not(.dark-mode) .chapter-marker.active {
+            background: var(--color-primary-dark);
+        }
+
+        body.dark-mode .chapter-marker.active {
+            background: white;
+        }
+
+        .time-display {
+            color: var(--color-text-primary);
+            font-size: 0.875rem;
+            min-width: 80px;
+            transition: color var(--transition-base);
+        }
+
+        body.dark-mode .time-display {
+            color: white;
+        }
+
+        .chapter-selector {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .chapter-btn {
+            padding: 0.5rem 1rem;
+            background: var(--color-bg-secondary);
+            border: 1px solid var(--color-border);
+            color: var(--color-text-primary);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+        }
+
+        body:not(.dark-mode) .chapter-btn {
+            background: rgba(0, 0, 0, 0.05);
+            border-color: rgba(0, 0, 0, 0.1);
+            color: var(--color-text-primary);
+        }
+
+        body.dark-mode .chapter-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .chapter-btn:hover,
+        .chapter-btn.active {
+            background: var(--gradient-button);
+            border-color: transparent;
+            color: white;
+        }
+
+        .documentary-content {
+            padding: 2rem 0 200px;
+        }
+
+        .chapter {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem;
+            position: relative;
+            opacity: 0.3;
+            transition: opacity 0.5s, color var(--transition-base);
+        }
+
+        body:not(.dark-mode) .chapter {
+            opacity: 0.4;
+        }
+
+        .chapter.active {
+            opacity: 1;
+        }
+
+        body:not(.dark-mode) .chapter {
+            color: var(--color-text-primary);
+        }
+
+        body.dark-mode .chapter {
+            color: white;
+        }
+
+        .chapter-content {
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .chapter-number {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--color-text-secondary);
+            margin-bottom: 1rem;
+            transition: color var(--transition-base);
+        }
+
+        body.dark-mode .chapter-number {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .chapter-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            background: var(--gradient-hero);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .chapter-description {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            color: var(--color-text-primary);
+            margin-bottom: 3rem;
+            transition: color var(--transition-base);
+        }
+
+        body.dark-mode .chapter-description {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .interactive-elements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .interactive-card {
+            background: var(--color-bg-secondary);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        body:not(.dark-mode) .interactive-card {
+            background: rgba(255, 255, 255, 0.8);
+            border-color: rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        body.dark-mode .interactive-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .interactive-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        body:not(.dark-mode) .interactive-card:hover {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark-mode .interactive-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .interactive-card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .behind-scenes {
+            margin-top: 4rem;
+            padding: 2rem;
+            background: var(--color-bg-secondary);
+            border-radius: var(--radius-lg);
+            border-left: 4px solid var(--color-primary);
+            transition: background-color var(--transition-base);
+        }
+
+        body:not(.dark-mode) .behind-scenes {
+            background: rgba(0, 0, 0, 0.03);
+        }
+
+        body.dark-mode .behind-scenes {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .behind-scenes-title {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--color-text-secondary);
+            margin-bottom: 1rem;
+            transition: color var(--transition-base);
+        }
+
+        body.dark-mode .behind-scenes-title {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            background: var(--gradient-button);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--color-text-secondary);
+            margin-top: 0.5rem;
+            transition: color var(--transition-base);
+        }
+
+        body.dark-mode .stat-label {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .interactive-card-text {
+            color: var(--color-text-secondary);
+            font-size: 0.875rem;
+            transition: color var(--transition-base);
+        }
+
+        body.dark-mode .interactive-card-text {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .behind-scenes-text {
+            color: var(--color-text-primary);
+            line-height: 1.8;
+            transition: color var(--transition-base);
+        }
+
+        body.dark-mode .behind-scenes-text {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        @media (max-width: 768px) {
+            .chapter-title {
+                font-size: 2rem;
+            }
+
+            .documentary-player {
+                padding: 1rem;
+            }
+
+            .player-controls {
+                flex-wrap: wrap;
+            }
+
+            .timeline-scrubber {
+                width: 100%;
+                order: 3;
+            }
+        }
+    </style>
+</head>
+
+<body class="documentary-page">
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="header-logo">📚 ExamMaster</a>
+            <nav class="header-nav">
+                <ul class="nav-list">
+                    <li class="nav-item nav-item-dropdown">
+                        <a href="#" class="nav-link">Home <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: 0.25rem;"></i></a>
+                        <ul class="nav-dropdown">
+                            <li><a href="index.html" class="nav-dropdown-link">Full View</a></li>
+                            <li><a href="home-simple.html" class="nav-dropdown-link">Quick View</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="exams.html" class="nav-link">Exams</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link active">About</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="theme-toggle">🌙</button>
+                <a href="login.html" class="btn btn-secondary btn-sm">Login</a>
+                <a href="register.html" class="btn btn-primary btn-sm">Sign Up</a>
+                <button class="mobile-menu-toggle">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-menu">
+        <button class="mobile-menu-close">×</button>
+        <nav>
+            <ul class="mobile-nav-list">
+                <li class="mobile-nav-item">
+                    <a href="#" class="mobile-nav-link">Home</a>
+                    <ul class="mobile-nav-sublist">
+                        <li><a href="index.html" class="mobile-nav-link">Full View</a></li>
+                        <li><a href="home-simple.html" class="mobile-nav-link">Quick View</a></li>
+                    </ul>
+                </li>
+                <li class="mobile-nav-item"><a href="exams.html" class="mobile-nav-link">Exams</a></li>
+                <li class="mobile-nav-item"><a href="about.html" class="mobile-nav-link active">About</a></li>
+                <li class="mobile-nav-item"><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+            </ul>
+            <div class="mobile-nav-actions">
+                <a href="login.html" class="btn btn-secondary btn-block">Login</a>
+                <a href="register.html" class="btn btn-primary btn-block">Sign Up</a>
+            </div>
+        </nav>
+    </div>
+
+    <div class="documentary-container">
+        <div class="documentary-content">
+            
+            <!-- Chapter 1: The Problem -->
+            <section class="chapter active" id="chapter-1" data-chapter="1">
+                <div class="chapter-content">
+                    <div class="chapter-number">Chapter 1 of 4</div>
+                    <h1 class="chapter-title">The Problem</h1>
+                    <p class="chapter-description">
+                        In 2020, millions of students across India were struggling to prepare for competitive exams. 
+                        Quality practice tests were either too expensive or didn't match real exam patterns. 
+                        Students needed a solution that was both affordable and effective.
+                    </p>
+                    
+                    <div class="interactive-elements">
+                        <div class="interactive-card" onclick="showDetails('problem-1')">
+                            <div class="interactive-card-icon">💰</div>
+                            <h3>High Costs</h3>
+                            <p class="interactive-card-text">Test series costing ₹10,000+ were out of reach for many students</p>
+                        </div>
+                        <div class="interactive-card" onclick="showDetails('problem-2')">
+                            <div class="interactive-card-icon">📉</div>
+                            <h3>Poor Quality</h3>
+                            <p class="interactive-card-text">Questions didn't match actual exam patterns and difficulty</p>
+                        </div>
+                        <div class="interactive-card" onclick="showDetails('problem-3')">
+                            <div class="interactive-card-icon">🌍</div>
+                            <h3>Limited Access</h3>
+                            <p class="interactive-card-text">Students in smaller cities had no access to quality resources</p>
+                        </div>
+                    </div>
+
+                    <div class="behind-scenes">
+                        <div class="behind-scenes-title">🎬 Behind The Scenes</div>
+                        <p class="behind-scenes-text">
+                            "We interviewed over 500 students before starting ExamMaster. The common theme? 
+                            They all wanted quality practice tests at affordable prices. That's when we knew 
+                            we had to build something different." - Founder, ExamMaster
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Chapter 2: The Solution -->
+            <section class="chapter" id="chapter-2" data-chapter="2">
+                <div class="chapter-content">
+                    <div class="chapter-number">Chapter 2 of 4</div>
+                    <h1 class="chapter-title">The Solution</h1>
+                    <p class="chapter-description">
+                        ExamMaster was born from a simple idea: combine expert knowledge with technology 
+                        to create affordable, high-quality test series. We built a platform that makes 
+                        exam preparation accessible to everyone.
+                    </p>
+                    
+                    <div class="interactive-elements">
+                        <div class="interactive-card" onclick="showDetails('solution-1')">
+                            <div class="interactive-card-icon">👨‍🏫</div>
+                            <h3>Expert Team</h3>
+                            <p class="interactive-card-text">100+ subject matter experts curate every question</p>
+                        </div>
+                        <div class="interactive-card" onclick="showDetails('solution-2')">
+                            <div class="interactive-card-icon">🤖</div>
+                            <h3>Smart Technology</h3>
+                            <p class="interactive-card-text">AI-powered analytics track your progress and weaknesses</p>
+                        </div>
+                        <div class="interactive-card" onclick="showDetails('solution-3')">
+                            <div class="interactive-card-icon">📱</div>
+                            <h3>Accessible Platform</h3>
+                            <p class="interactive-card-text">Study anywhere, anytime on any device</p>
+                        </div>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number" data-counter="250">0</div>
+                            <div class="stat-label">Test Series</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-counter="50">0</div>
+                            <div class="stat-label">Expert Faculty</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-counter="24">0</div>
+                            <div class="stat-label">/7 Support</div>
+                        </div>
+                    </div>
+
+                    <div class="behind-scenes">
+                        <div class="behind-scenes-title">🎬 Behind The Scenes</div>
+                        <p class="behind-scenes-text">
+                            "Building ExamMaster wasn't easy. We spent months researching exam patterns, 
+                            working with educators, and testing our platform with real students. Every 
+                            feature was designed based on actual student needs." - CTO, ExamMaster
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Chapter 3: The Impact -->
+            <section class="chapter" id="chapter-3" data-chapter="3">
+                <div class="chapter-content">
+                    <div class="chapter-number">Chapter 3 of 4</div>
+                    <h1 class="chapter-title">The Impact</h1>
+                    <p class="chapter-description">
+                        Today, ExamMaster has helped over 50,000 students achieve their dreams. 
+                        Our platform has become a trusted partner in exam preparation, with an 
+                        85% success rate and thousands of success stories.
+                    </p>
+                    
+                    <div class="interactive-elements">
+                        <div class="interactive-card" onclick="showDetails('impact-1')">
+                            <div class="interactive-card-icon">🎓</div>
+                            <h3>50,000+ Students</h3>
+                            <p class="interactive-card-text">Students trust ExamMaster for their preparation</p>
+                        </div>
+                        <div class="interactive-card" onclick="showDetails('impact-2')">
+                            <div class="interactive-card-icon">📈</div>
+                            <h3>85% Success Rate</h3>
+                            <p class="interactive-card-text">Students using our platform achieve success</p>
+                        </div>
+                        <div class="interactive-card" onclick="showDetails('impact-3')">
+                            <div class="interactive-card-icon">⭐</div>
+                            <h3>4.8/5 Rating</h3>
+                            <p class="interactive-card-text">Average rating from 10,000+ reviews</p>
+                        </div>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number" data-counter="50000">0</div>
+                            <div class="stat-label">Active Students</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-counter="85">0</div>
+                            <div class="stat-label">% Success Rate</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-counter="10000">0</div>
+                            <div class="stat-label">Test Completed</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-counter="4.8">0</div>
+                            <div class="stat-label">/5 Rating</div>
+                        </div>
+                    </div>
+
+                    <div class="behind-scenes">
+                        <div class="behind-scenes-title">🎬 Student Testimonial</div>
+                        <p class="behind-scenes-text" style="font-style: italic;">
+                            "ExamMaster changed my life. I cleared UPSC with Rank 45, and it wouldn't 
+                            have been possible without their comprehensive test series. The detailed 
+                            solutions helped me understand my mistakes and improve." - Priya Sharma, UPSC 2024
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Chapter 4: The Future -->
+            <section class="chapter" id="chapter-4" data-chapter="4">
+                <div class="chapter-content">
+                    <div class="chapter-number">Chapter 4 of 4</div>
+                    <h1 class="chapter-title">The Future</h1>
+                    <p class="chapter-description">
+                        Our journey is just beginning. We're constantly innovating, adding new features, 
+                        and expanding to help more students. Our vision is to become India's most trusted 
+                        platform for competitive exam preparation.
+                    </p>
+                    
+                    <div class="interactive-elements">
+                        <div class="interactive-card" onclick="showDetails('future-1')">
+                            <div class="interactive-card-icon">🚀</div>
+                            <h3>AI-Powered Learning</h3>
+                            <p class="interactive-card-text">Personalized study plans based on AI analysis</p>
+                        </div>
+                        <div class="interactive-card" onclick="showDetails('future-2')">
+                            <div class="interactive-card-icon">🌐</div>
+                            <h3>Global Expansion</h3>
+                            <p class="interactive-card-text">Bringing quality education to students worldwide</p>
+                        </div>
+                        <div class="interactive-card" onclick="showDetails('future-3')">
+                            <div class="interactive-card-icon">🤝</div>
+                            <h3>Partnerships</h3>
+                            <p class="interactive-card-text">Collaborating with institutions and educators</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 4rem;">
+                        <a href="register.html" class="btn btn-lg" style="background: var(--gradient-button); color: white; padding: 1rem 3rem; font-size: 1.125rem;">
+                            Join Our Journey
+                        </a>
+                    </div>
+
+                    <div class="behind-scenes">
+                        <div class="behind-scenes-title">🎬 Our Commitment</div>
+                        <p class="behind-scenes-text">
+                            "We're not just building a platform - we're building a movement. Every student 
+                            deserves access to quality education, and we won't stop until we've helped 
+                            millions achieve their dreams." - Team ExamMaster
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- Documentary Player Controls -->
+        <div class="documentary-player">
+            <div class="player-controls">
+                <button class="play-pause-btn" id="playPauseBtn" onclick="togglePlay()">
+                    <i class="fas fa-play" id="playIcon"></i>
+                </button>
+                
+                <div class="time-display">
+                    <span id="currentTime">0:00</span> / <span id="totalTime">4:00</span>
+                </div>
+
+                <div class="timeline-scrubber" id="timelineScrubber" onclick="scrubTo(event)">
+                    <div class="chapter-markers">
+                        <div class="chapter-marker" style="left: 0%;" onclick="goToChapter(1, event)"></div>
+                        <div class="chapter-marker" style="left: 25%;" onclick="goToChapter(2, event)"></div>
+                        <div class="chapter-marker" style="left: 50%;" onclick="goToChapter(3, event)"></div>
+                        <div class="chapter-marker" style="left: 75%;" onclick="goToChapter(4, event)"></div>
+                    </div>
+                    <div class="timeline-progress" id="timelineProgress"></div>
+                    <div class="timeline-marker" id="timelineMarker"></div>
+                </div>
+
+                <div class="chapter-selector">
+                    <button class="chapter-btn active" onclick="goToChapter(1)" data-chapter="1">Chapter 1</button>
+                    <button class="chapter-btn" onclick="goToChapter(2)" data-chapter="2">Chapter 2</button>
+                    <button class="chapter-btn" onclick="goToChapter(3)" data-chapter="3">Chapter 3</button>
+                    <button class="chapter-btn" onclick="goToChapter(4)" data-chapter="4">Chapter 4</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer" style="background: var(--color-bg); color: var(--color-text-secondary); margin-top: 0; transition: background-color var(--transition-base), color var(--transition-base);">
+        <div class="footer-container">
+            <div class="footer-column">
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                    <span style="font-size: 1.75rem;">📚</span>
+                    <h3 class="footer-heading" style="margin: 0; color: var(--color-text-primary); transition: color var(--transition-base);">ExamMaster</h3>
+                </div>
+                <p class="footer-text" style="color: var(--color-text-secondary); transition: color var(--transition-base);">Your trusted partner for competitive exam preparation.</p>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-heading" style="color: var(--color-text-primary); transition: color var(--transition-base);">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html" class="footer-link" style="color: var(--color-text-secondary); transition: color var(--transition-base);">Home</a></li>
+                    <li><a href="exams.html" class="footer-link" style="color: var(--color-text-secondary); transition: color var(--transition-base);">All Exams</a></li>
+                    <li><a href="about.html" class="footer-link" style="color: var(--color-text-secondary); transition: color var(--transition-base);">About Us</a></li>
+                    <li><a href="contact.html" class="footer-link" style="color: var(--color-text-secondary); transition: color var(--transition-base);">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-heading" style="color: var(--color-text-primary); transition: color var(--transition-base);">Categories</h3>
+                <ul class="footer-links">
+                    <li><a href="exams.html?category=UPSC" class="footer-link" style="color: var(--color-text-secondary); transition: color var(--transition-base);">UPSC</a></li>
+                    <li><a href="exams.html?category=SSC" class="footer-link" style="color: var(--color-text-secondary); transition: color var(--transition-base);">SSC</a></li>
+                    <li><a href="exams.html?category=Banking" class="footer-link" style="color: var(--color-text-secondary); transition: color var(--transition-base);">Banking</a></li>
+                    <li><a href="exams.html?category=Railway" class="footer-link" style="color: var(--color-text-secondary); transition: color var(--transition-base);">Railway</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-heading" style="color: var(--color-text-primary); transition: color var(--transition-base);">Contact</h3>
+                <p class="footer-text" style="color: var(--color-text-secondary); transition: color var(--transition-base);">📧 support@exammaster.com<br>📞 +91 1234567890<br>📍 New Delhi, India</p>
+            </div>
+        </div>
+        <div class="footer-bottom" style="border-top: 1px solid var(--color-border); transition: border-color var(--transition-base);">
+            <p class="footer-copyright" style="color: var(--color-text-secondary); transition: color var(--transition-base);">© 2025 ExamMaster. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/about-documentary.js"></script>
+</body>
+
+</html>
