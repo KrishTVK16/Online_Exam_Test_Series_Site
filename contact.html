@@ -233,25 +233,60 @@
             border-color: rgba(255, 255, 255, 0.1);
         }
 
+        .accordion {
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
         .accordion-item {
             margin-bottom: 1rem;
             border: 1px solid var(--color-border);
             border-radius: var(--radius-md);
             overflow: hidden;
-            transition: all 0.3s;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
         }
 
         body:not(.dark-mode) .accordion-item {
             background: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
         }
 
         body.dark-mode .accordion-item {
             background: rgba(255, 255, 255, 0.03);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .accordion-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-button);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .accordion-item:hover {
             border-color: var(--color-primary);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 20px rgba(124, 92, 230, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .accordion-item:hover::before {
+            transform: scaleX(1);
+        }
+
+        .accordion-item.active {
+            border-color: var(--color-primary);
+            box-shadow: 0 8px 24px rgba(124, 92, 230, 0.2);
+        }
+
+        .accordion-item.active::before {
+            transform: scaleX(1);
         }
 
         .accordion-header {
@@ -266,32 +301,97 @@
             align-items: center;
             color: var(--color-text-primary);
             font-weight: 600;
-            transition: all 0.3s;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .accordion-header::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--gradient-button);
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .accordion-header:hover {
-            background: var(--color-bg-secondary);
+            background: linear-gradient(90deg, rgba(124, 92, 230, 0.05) 0%, transparent 100%);
+            padding-left: 1.75rem;
+        }
+
+        .accordion-header:hover::after {
+            transform: scaleY(1);
+        }
+
+        .accordion-header.active {
+            color: var(--color-primary);
+            background: linear-gradient(90deg, rgba(124, 92, 230, 0.08) 0%, transparent 100%);
+            padding-left: 1.75rem;
+        }
+
+        .accordion-header.active::after {
+            transform: scaleY(1);
+        }
+
+        .accordion-header span:first-child {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .accordion-header:hover span:first-child {
+            transform: translateX(4px);
         }
 
         .accordion-icon {
-            transition: transform 0.3s;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             color: var(--color-primary);
+            font-size: 0.875rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(124, 92, 230, 0.1);
+        }
+
+        .accordion-header:hover .accordion-icon {
+            background: rgba(124, 92, 230, 0.2);
+            transform: scale(1.1);
         }
 
         .accordion-header.active .accordion-icon {
-            transform: rotate(180deg);
+            transform: rotate(180deg) scale(1.1);
+            background: rgba(124, 92, 230, 0.25);
+            box-shadow: 0 2px 8px rgba(124, 92, 230, 0.3);
         }
 
         .accordion-body {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            background: transparent;
+        }
+
+        .accordion-item.active .accordion-body {
+            background: linear-gradient(180deg, rgba(124, 92, 230, 0.02) 0%, transparent 100%);
         }
 
         .accordion-content {
             padding: 0 1.5rem 1.5rem;
             color: var(--color-text-secondary);
             line-height: 1.8;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
+        }
+
+        .accordion-item.active .accordion-content {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .social-section {
@@ -312,6 +412,15 @@
             text-decoration: none;
             transition: all 0.3s;
             margin: 0 0.5rem;
+        }
+
+        .social-icon i {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            width: 100%;
+            height: 100%;
         }
 
         .social-icon:hover {
@@ -423,6 +532,7 @@
             </nav>
             <div class="header-actions">
                 <button class="theme-toggle">🌙</button>
+                <a href="dashboard.html" class="btn btn-outline btn-sm">Dashboard</a>
                 <a href="login.html" class="btn btn-secondary btn-sm">Login</a>
                 <a href="register.html" class="btn btn-primary btn-sm">Sign Up</a>
                 <button class="mobile-menu-toggle">☰</button>
@@ -447,6 +557,7 @@
                 <li class="mobile-nav-item"><a href="contact.html" class="mobile-nav-link active">Contact</a></li>
             </ul>
             <div class="mobile-nav-actions">
+                <a href="dashboard.html" class="btn btn-outline btn-block">Dashboard</a>
                 <a href="login.html" class="btn btn-secondary btn-block">Login</a>
                 <a href="register.html" class="btn btn-primary btn-block">Sign Up</a>
             </div>
@@ -472,19 +583,19 @@
         <div class="container">
             <div class="contact-stats">
                 <div class="stat-card animate-on-scroll">
-                    <div class="stat-number" data-counter="24">0</div>
+                    <div class="stat-number" data-counter="24" data-suffix="">24</div>
                     <div class="stat-label">Hour Support</div>
                 </div>
                 <div class="stat-card animate-on-scroll">
-                    <div class="stat-number" data-counter="2">0</div>
+                    <div class="stat-number" data-counter="2" data-suffix="">2</div>
                     <div class="stat-label">Hour Response</div>
                 </div>
                 <div class="stat-card animate-on-scroll">
-                    <div class="stat-number" data-counter="100">0</div>
-                    <div class="stat-label">% Satisfaction</div>
+                    <div class="stat-number" data-counter="100" data-suffix="%">100%</div>
+                    <div class="stat-label">Satisfaction</div>
                 </div>
                 <div class="stat-card animate-on-scroll">
-                    <div class="stat-number" data-counter="50000">0</div>
+                    <div class="stat-number" data-counter="50000" data-suffix="+">50,000+</div>
                     <div class="stat-label">Happy Students</div>
                 </div>
             </div>
@@ -674,17 +785,8 @@
                     <span style="font-size: 1.75rem;">📚</span>
                     <h3 class="footer-heading" style="margin: 0;">ExamMaster</h3>
                 </div>
-                <p class="footer-text">Your trusted partner for competitive exam preparation.</p>
-                <div class="footer-social">
-                    <a href="#" target="_blank" class="social-icon" style="background: #1877F2;"><i
-                            class="fab fa-facebook-f"></i></a>
-                    <a href="#" target="_blank" class="social-icon" style="background: #1DA1F2;"><i
-                            class="fab fa-twitter"></i></a>
-                    <a href="#" target="_blank" class="social-icon" style="background: #E4405F;"><i
-                            class="fab fa-instagram"></i></a>
-                    <a href="#" target="_blank" class="social-icon" style="background: #0A66C2;"><i
-                            class="fab fa-linkedin-in"></i></a>
-                </div>
+                <p class="footer-text">Your trusted partner for competitive exam preparation. We provide comprehensive
+                    test series with detailed solutions and performance analytics.</p>
             </div>
             <div class="footer-column">
                 <h3 class="footer-heading">Quick Links</h3>
@@ -696,17 +798,32 @@
                 </ul>
             </div>
             <div class="footer-column">
-                <h3 class="footer-heading">Categories</h3>
+                <h3 class="footer-heading">Exam Categories</h3>
                 <ul class="footer-links">
                     <li><a href="exams.html?category=UPSC" class="footer-link">UPSC</a></li>
                     <li><a href="exams.html?category=SSC" class="footer-link">SSC</a></li>
                     <li><a href="exams.html?category=Banking" class="footer-link">Banking</a></li>
                     <li><a href="exams.html?category=Railway" class="footer-link">Railway</a></li>
+                    <li><a href="exams.html?category=GATE" class="footer-link">GATE</a></li>
                 </ul>
             </div>
             <div class="footer-column">
-                <h3 class="footer-heading">Contact</h3>
-                <p class="footer-text">📧 support@exammaster.com<br>📞 +91 1234567890<br>📍 New Delhi, India</p>
+                <h3 class="footer-heading">Contact Us</h3>
+                <p class="footer-text">
+                    📧 support@exammaster.com<br>
+                    📞 +91 1234567890<br>
+                    📍 New Delhi, India
+                </p>
+                <div class="footer-social">
+                    <a href="#" target="_blank" class="social-icon" aria-label="Facebook"
+                        style="background: #1877F2;"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" target="_blank" class="social-icon" aria-label="Twitter" style="background: #1DA1F2;"><i
+                            class="fab fa-twitter"></i></a>
+                    <a href="#" target="_blank" class="social-icon" aria-label="Instagram"
+                        style="background: #E4405F;"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank" class="social-icon" aria-label="LinkedIn"
+                        style="background: #0A66C2;"><i class="fab fa-linkedin-in"></i></a>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">
@@ -717,24 +834,6 @@
     <script src="js/main.js"></script>
     <script src="js/animations.js"></script>
     <script>
-        // Initialize accordion
-        document.querySelectorAll('.accordion-header').forEach(header => {
-            header.addEventListener('click', function () {
-                const isActive = this.classList.contains('active');
-
-                document.querySelectorAll('.accordion-header').forEach(h => {
-                    h.classList.remove('active');
-                    h.nextElementSibling.style.maxHeight = null;
-                });
-
-                if (!isActive) {
-                    this.classList.add('active');
-                    const body = this.nextElementSibling;
-                    body.style.maxHeight = body.scrollHeight + 'px';
-                }
-            });
-        });
-
         // Initialize counters
         function initCounters() {
             const counters = document.querySelectorAll('[data-counter]');

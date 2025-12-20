@@ -28,6 +28,28 @@
 }
 
 /* ===================================
+   MEDIUM SCREENS (600px - 850px)
+   =================================== */
+
+@media (min-width: 600px) and (max-width: 850px) {
+    /* Grid Adjustments - 2 columns for medium screens */
+    .grid-3 {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+/* ===================================
+   SMALL SCREENS (Below 600px)
+   =================================== */
+
+@media (max-width: 599px) {
+    /* Grid Adjustments - 1 column for small screens */
+    .grid-3 {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* ===================================
    TABLET (Max-width: 1023px)
    =================================== */
 
@@ -75,9 +97,7 @@
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .grid-3 {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    /* Note: .grid-3 is now handled by specific breakpoints above */
 
     /* Footer */
     .footer-container {
@@ -171,11 +191,12 @@
 
     /* Grid Adjustments */
     .grid-4,
-    .grid-3,
     .grid-2 {
         grid-template-columns: 1fr;
         gap: var(--spacing-md);
     }
+    
+    /* Note: .grid-3 is handled by specific breakpoints (600px and 850px) */
 
     /* Categories Grid 3x3 - Responsive */
     .categories-grid-3x3 {

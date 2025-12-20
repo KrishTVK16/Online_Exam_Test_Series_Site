@@ -237,6 +237,7 @@ function initializeCounters() {
 
 function animateCounter(element) {
     const target = parseFloat(element.getAttribute('data-counter'));
+    const suffix = element.getAttribute('data-suffix') || '';
     const duration = 2000; // 2 seconds
     const increment = target / (duration / 16); // 60fps
     let current = 0;
@@ -246,16 +247,16 @@ function animateCounter(element) {
         current += increment;
         if (current < target) {
             if (isDecimal) {
-                element.textContent = current.toFixed(1);
+                element.textContent = current.toFixed(1) + suffix;
             } else {
-                element.textContent = Math.floor(current).toLocaleString();
+                element.textContent = Math.floor(current).toLocaleString() + suffix;
             }
             requestAnimationFrame(updateCounter);
         } else {
             if (isDecimal) {
-                element.textContent = target.toFixed(1);
+                element.textContent = target.toFixed(1) + suffix;
             } else {
-                element.textContent = target.toLocaleString();
+                element.textContent = target.toLocaleString() + suffix;
             }
         }
     };

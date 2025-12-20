@@ -483,23 +483,53 @@ function closeModal(modalId) {
 function initAccordion() {
   const accordionHeaders = document.querySelectorAll('.accordion-header');
   
+  // Pre-calculate and store heights for all accordion bodies
+  document.querySelectorAll('.accordion-body').forEach(body => {
+    // Temporarily show to measure
+    const originalMaxHeight = body.style.maxHeight;
+    body.style.maxHeight = 'none';
+    const height = body.scrollHeight;
+    body.style.maxHeight = originalMaxHeight || '0px';
+    // Store the height in a data attribute
+    body.setAttribute('data-height', height);
+  });
+  
   accordionHeaders.forEach(header => {
-    header.addEventListener('click', function() {
+    header.addEventListener('click', function(e) {
+      e.preventDefault();
       const isActive = this.classList.contains('active');
+      const body = this.nextElementSibling;
+      const accordionItem = this.closest('.accordion-item');
       
-      // Close all accordions (optional - remove for multiple open)
+      // Close all accordions first
       accordionHeaders.forEach(h => {
-        h.classList.remove('active');
-        const body = h.nextElementSibling;
-        if (body) body.style.maxHeight = null;
+        if (h !== this) {
+          h.classList.remove('active');
+          const otherItem = h.closest('.accordion-item');
+          if (otherItem) otherItem.classList.remove('active');
+          const otherBody = h.nextElementSibling;
+          if (otherBody && otherBody.classList.contains('accordion-body')) {
+            otherBody.style.maxHeight = '0px';
+          }
+        }
       });
       
-      // Toggle current
-      if (!isActive) {
+      // Toggle current accordion
+      if (isActive) {
+        // Close it
+        this.classList.remove('active');
+        if (accordionItem) accordionItem.classList.remove('active');
+        if (body && body.classList.contains('accordion-body')) {
+          body.style.maxHeight = '0px';
+        }
+      } else {
+        // Open it
         this.classList.add('active');
-        const body = this.nextElementSibling;
-        if (body) {
-          body.style.maxHeight = body.scrollHeight + 'px';
+        if (accordionItem) accordionItem.classList.add('active');
+        if (body && body.classList.contains('accordion-body')) {
+          // Get the stored height
+          const height = body.getAttribute('data-height') || body.scrollHeight;
+          body.style.maxHeight = height + 'px';
         }
       }
     });

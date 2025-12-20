@@ -57,18 +57,28 @@ function initCounterAnimations() {
 }
 
 function animateCounter(element) {
-    const target = parseInt(element.getAttribute('data-counter'));
+    const target = parseFloat(element.getAttribute('data-counter'));
+    const suffix = element.getAttribute('data-suffix') || '';
     const duration = 2000; // 2 seconds
     const increment = target / (duration / 16); // 60fps
     let current = 0;
+    const isDecimal = target % 1 !== 0;
 
     const updateCounter = () => {
         current += increment;
         if (current < target) {
-            element.textContent = Math.floor(current).toLocaleString();
+            if (isDecimal) {
+                element.textContent = current.toFixed(1) + suffix;
+            } else {
+                element.textContent = Math.floor(current).toLocaleString() + suffix;
+            }
             requestAnimationFrame(updateCounter);
         } else {
-            element.textContent = target.toLocaleString();
+            if (isDecimal) {
+                element.textContent = target.toFixed(1) + suffix;
+            } else {
+                element.textContent = target.toLocaleString() + suffix;
+            }
         }
     };
 

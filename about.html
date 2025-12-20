@@ -31,6 +31,7 @@
         /* Light mode - softer cinematic look */
         body:not(.dark-mode) .documentary-container {
             background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+            color: #000000 !important;
         }
 
         /* Dark mode - cinematic dark */
@@ -183,6 +184,10 @@
             transition: color var(--transition-base);
         }
 
+        body:not(.dark-mode) .time-display {
+            color: #000000 !important;
+        }
+
         body.dark-mode .time-display {
             color: white;
         }
@@ -208,7 +213,7 @@
         body:not(.dark-mode) .chapter-btn {
             background: rgba(0, 0, 0, 0.05);
             border-color: rgba(0, 0, 0, 0.1);
-            color: var(--color-text-primary);
+            color: #000000 !important;
         }
 
         body.dark-mode .chapter-btn {
@@ -240,7 +245,7 @@
         }
 
         body:not(.dark-mode) .chapter {
-            opacity: 0.4;
+            opacity: 1 !important;
         }
 
         .chapter.active {
@@ -248,7 +253,11 @@
         }
 
         body:not(.dark-mode) .chapter {
-            color: var(--color-text-primary);
+            color: #000000 !important;
+        }
+
+        body:not(.dark-mode) .chapter * {
+            color: #000000 !important;
         }
 
         body.dark-mode .chapter {
@@ -269,6 +278,10 @@
             transition: color var(--transition-base);
         }
 
+        body:not(.dark-mode) .chapter-number {
+            color: #000000 !important;
+        }
+
         body.dark-mode .chapter-number {
             color: rgba(255, 255, 255, 0.7);
         }
@@ -283,12 +296,37 @@
             background-clip: text;
         }
 
+        body:not(.dark-mode) .chapter-title {
+            background: linear-gradient(135deg, #000000, #000000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Global override for all text in light mode */
+        body:not(.dark-mode) .documentary-container,
+        body:not(.dark-mode) .documentary-container p,
+        body:not(.dark-mode) .documentary-container span,
+        body:not(.dark-mode) .documentary-container div,
+        body:not(.dark-mode) .documentary-container h1,
+        body:not(.dark-mode) .documentary-container h2,
+        body:not(.dark-mode) .documentary-container h3,
+        body:not(.dark-mode) .documentary-container h4,
+        body:not(.dark-mode) .documentary-container h5,
+        body:not(.dark-mode) .documentary-container h6 {
+            color: #000000 !important;
+        }
+
         .chapter-description {
             font-size: 1.25rem;
             line-height: 1.8;
             color: var(--color-text-primary);
             margin-bottom: 3rem;
             transition: color var(--transition-base);
+        }
+
+        body:not(.dark-mode) .chapter-description {
+            color: #000000 !important;
         }
 
         body.dark-mode .chapter-description {
@@ -342,6 +380,20 @@
             margin-bottom: 1rem;
         }
 
+        .interactive-card h3 {
+            color: var(--color-text-primary);
+            margin-bottom: 0.75rem;
+            transition: color var(--transition-base);
+        }
+
+        body:not(.dark-mode) .interactive-card h3 {
+            color: #000000 !important;
+        }
+
+        body.dark-mode .interactive-card h3 {
+            color: rgba(255, 255, 255, 0.95);
+        }
+
         .behind-scenes {
             margin-top: 4rem;
             padding: 2rem;
@@ -366,6 +418,10 @@
             color: var(--color-text-secondary);
             margin-bottom: 1rem;
             transition: color var(--transition-base);
+        }
+
+        body:not(.dark-mode) .behind-scenes-title {
+            color: #000000 !important;
         }
 
         body.dark-mode .behind-scenes-title {
@@ -399,6 +455,10 @@
             transition: color var(--transition-base);
         }
 
+        body:not(.dark-mode) .stat-label {
+            color: #000000 !important;
+        }
+
         body.dark-mode .stat-label {
             color: rgba(255, 255, 255, 0.7);
         }
@@ -409,6 +469,10 @@
             transition: color var(--transition-base);
         }
 
+        body:not(.dark-mode) .interactive-card-text {
+            color: #000000 !important;
+        }
+
         body.dark-mode .interactive-card-text {
             color: rgba(255, 255, 255, 0.7);
         }
@@ -417,6 +481,10 @@
             color: var(--color-text-primary);
             line-height: 1.8;
             transition: color var(--transition-base);
+        }
+
+        body:not(.dark-mode) .behind-scenes-text {
+            color: #000000 !important;
         }
 
         body.dark-mode .behind-scenes-text {
@@ -466,6 +534,7 @@
             </nav>
             <div class="header-actions">
                 <button class="theme-toggle">🌙</button>
+                <a href="dashboard.html" class="btn btn-outline btn-sm">Dashboard</a>
                 <a href="login.html" class="btn btn-secondary btn-sm">Login</a>
                 <a href="register.html" class="btn btn-primary btn-sm">Sign Up</a>
                 <button class="mobile-menu-toggle">☰</button>
@@ -490,6 +559,7 @@
                 <li class="mobile-nav-item"><a href="contact.html" class="mobile-nav-link">Contact</a></li>
             </ul>
             <div class="mobile-nav-actions">
+                <a href="dashboard.html" class="btn btn-outline btn-block">Dashboard</a>
                 <a href="login.html" class="btn btn-secondary btn-block">Login</a>
                 <a href="register.html" class="btn btn-primary btn-block">Sign Up</a>
             </div>
@@ -570,15 +640,15 @@
 
                     <div class="stats-grid">
                         <div class="stat-item">
-                            <div class="stat-number" data-counter="250">0</div>
+                            <div class="stat-number" data-counter="250" data-suffix="+">250+</div>
                             <div class="stat-label">Test Series</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-number" data-counter="50">0</div>
+                            <div class="stat-number" data-counter="50" data-suffix="+">50+</div>
                             <div class="stat-label">Expert Faculty</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-number" data-counter="24">0</div>
+                            <div class="stat-number" data-counter="24" data-suffix="">24</div>
                             <div class="stat-label">/7 Support</div>
                         </div>
                     </div>
@@ -625,19 +695,19 @@
 
                     <div class="stats-grid">
                         <div class="stat-item">
-                            <div class="stat-number" data-counter="50000">0</div>
+                            <div class="stat-number" data-counter="50000" data-suffix="+">50,000+</div>
                             <div class="stat-label">Active Students</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-number" data-counter="85">0</div>
-                            <div class="stat-label">% Success Rate</div>
+                            <div class="stat-number" data-counter="85" data-suffix="%">85%</div>
+                            <div class="stat-label">Success Rate</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-number" data-counter="10000">0</div>
+                            <div class="stat-number" data-counter="10000" data-suffix="+">10,000+</div>
                             <div class="stat-label">Test Completed</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-number" data-counter="4.8">0</div>
+                            <div class="stat-number" data-counter="4.8" data-suffix="">4.8</div>
                             <div class="stat-label">/5 Rating</div>
                         </div>
                     </div>
@@ -733,40 +803,56 @@
         </div>
     </div>
 
-    <footer class="footer" style="background: var(--color-bg); color: var(--color-text-secondary); margin-top: 0; transition: background-color var(--transition-base), color var(--transition-base);">
+    <footer class="footer">
         <div class="footer-container">
             <div class="footer-column">
                 <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
                     <span style="font-size: 1.75rem;">📚</span>
-                    <h3 class="footer-heading" style="margin: 0; color: var(--color-text-primary); transition: color var(--transition-base);">ExamMaster</h3>
+                    <h3 class="footer-heading" style="margin: 0;">ExamMaster</h3>
                 </div>
-                <p class="footer-text" style="color: var(--color-text-secondary); transition: color var(--transition-base);">Your trusted partner for competitive exam preparation.</p>
+                <p class="footer-text">Your trusted partner for competitive exam preparation. We provide comprehensive
+                    test series with detailed solutions and performance analytics.</p>
             </div>
             <div class="footer-column">
-                <h3 class="footer-heading" style="color: var(--color-text-primary); transition: color var(--transition-base);">Quick Links</h3>
+                <h3 class="footer-heading">Quick Links</h3>
                 <ul class="footer-links">
-                    <li><a href="index.html" class="footer-link" style="color: var(--color-text-secondary); transition: color var(--transition-base);">Home</a></li>
-                    <li><a href="exams.html" class="footer-link" style="color: var(--color-text-secondary); transition: color var(--transition-base);">All Exams</a></li>
-                    <li><a href="about.html" class="footer-link" style="color: var(--color-text-secondary); transition: color var(--transition-base);">About Us</a></li>
-                    <li><a href="contact.html" class="footer-link" style="color: var(--color-text-secondary); transition: color var(--transition-base);">Contact</a></li>
+                    <li><a href="index.html" class="footer-link">Home</a></li>
+                    <li><a href="exams.html" class="footer-link">All Exams</a></li>
+                    <li><a href="about.html" class="footer-link">About Us</a></li>
+                    <li><a href="contact.html" class="footer-link">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-column">
-                <h3 class="footer-heading" style="color: var(--color-text-primary); transition: color var(--transition-base);">Categories</h3>
+                <h3 class="footer-heading">Exam Categories</h3>
                 <ul class="footer-links">
-                    <li><a href="exams.html?category=UPSC" class="footer-link" style="color: var(--color-text-secondary); transition: color var(--transition-base);">UPSC</a></li>
-                    <li><a href="exams.html?category=SSC" class="footer-link" style="color: var(--color-text-secondary); transition: color var(--transition-base);">SSC</a></li>
-                    <li><a href="exams.html?category=Banking" class="footer-link" style="color: var(--color-text-secondary); transition: color var(--transition-base);">Banking</a></li>
-                    <li><a href="exams.html?category=Railway" class="footer-link" style="color: var(--color-text-secondary); transition: color var(--transition-base);">Railway</a></li>
+                    <li><a href="exams.html?category=UPSC" class="footer-link">UPSC</a></li>
+                    <li><a href="exams.html?category=SSC" class="footer-link">SSC</a></li>
+                    <li><a href="exams.html?category=Banking" class="footer-link">Banking</a></li>
+                    <li><a href="exams.html?category=Railway" class="footer-link">Railway</a></li>
+                    <li><a href="exams.html?category=GATE" class="footer-link">GATE</a></li>
                 </ul>
             </div>
             <div class="footer-column">
-                <h3 class="footer-heading" style="color: var(--color-text-primary); transition: color var(--transition-base);">Contact</h3>
-                <p class="footer-text" style="color: var(--color-text-secondary); transition: color var(--transition-base);">📧 support@exammaster.com<br>📞 +91 1234567890<br>📍 New Delhi, India</p>
+                <h3 class="footer-heading">Contact Us</h3>
+                <p class="footer-text">
+                    📧 support@exammaster.com<br>
+                    📞 +91 1234567890<br>
+                    📍 New Delhi, India
+                </p>
+                <div class="footer-social">
+                    <a href="#" target="_blank" class="social-icon" aria-label="Facebook"
+                        style="background: #1877F2;"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" target="_blank" class="social-icon" aria-label="Twitter" style="background: #1DA1F2;"><i
+                            class="fab fa-twitter"></i></a>
+                    <a href="#" target="_blank" class="social-icon" aria-label="Instagram"
+                        style="background: #E4405F;"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank" class="social-icon" aria-label="LinkedIn"
+                        style="background: #0A66C2;"><i class="fab fa-linkedin-in"></i></a>
+                </div>
             </div>
         </div>
-        <div class="footer-bottom" style="border-top: 1px solid var(--color-border); transition: border-color var(--transition-base);">
-            <p class="footer-copyright" style="color: var(--color-text-secondary); transition: color var(--transition-base);">© 2025 ExamMaster. All rights reserved.</p>
+        <div class="footer-bottom">
+            <p class="footer-copyright">© 2025 ExamMaster. All rights reserved.</p>
         </div>
     </footer>
 

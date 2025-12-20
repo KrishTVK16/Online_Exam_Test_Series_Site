@@ -395,8 +395,22 @@ let currentFilters = {
 
 // Pagination state
 let currentPage = 1;
-const itemsPerPage = 6;
 let isInitialized = false;
+
+// ===================================
+// DYNAMIC PAGINATION
+// ===================================
+
+/**
+ * Get items per page based on screen width
+ * @returns {number} Items per page (2, 4, or 6)
+ */
+function getItemsPerPage() {
+    const width = window.innerWidth;
+    if (width < 600) return 2;      // Mobile: 1 column × 2 rows
+    if (width <= 850) return 4;     // Medium: 2 columns × 2 rows
+    return 6;                        // Desktop: 3 columns × 2 rows
+}
 
 // ===================================
 // INITIALIZATION
@@ -457,6 +471,25 @@ function initializeExamsPage() {
     initializeFilters();
     initializeSearch();
     initializeSort();
+    
+    // Add window resize listener for responsive pagination
+    let resizeTimeout;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(function() {
+            // Recalculate pagination on resize
+            const newItemsPerPage = getItemsPerPage();
+            const totalPages = Math.ceil(filteredExams.length / newItemsPerPage);
+            
+            // Adjust current page if it exceeds total pages after resize
+            if (currentPage > totalPages && totalPages > 0) {
+                currentPage = totalPages;
+            }
+            
+            // Re-render with new pagination
+            renderExams();
+        }, 300); // Debounce: 300ms delay
+    });
     
     // Force initial render with a small delay to ensure DOM is ready
     setTimeout(() => {
@@ -685,7 +718,8 @@ function renderExams() {
         emptyState.style.display = 'none';
     }
 
-    // Calculate pagination
+    // Calculate pagination with dynamic items per page
+    const itemsPerPage = getItemsPerPage();
     const totalPages = Math.ceil(filteredExams.length / itemsPerPage);
     
     // Ensure currentPage is within valid range
@@ -881,6 +915,7 @@ function hidePagination() {
 }
 
 function changePage(page) {
+    const itemsPerPage = getItemsPerPage();
     const totalPages = Math.ceil(filteredExams.length / itemsPerPage);
     if (page < 1 || page > totalPages) return;
 
@@ -944,16 +979,18 @@ function createExamCard(exam) {
     const examId = exam.id || 0;
 
     return `
-    <div class="card h-100 exam-card animate-on-scroll in-view" style="opacity: 1 !important; transform: translateY(0) !important; visibility: visible !important;">
-      ${exam.featured ? '<span class="card-badge badge-primary">Featured</span>' : ''}
+    <div class="card h-100 exam-card animate-on-scroll in-view" style="opacity: 1 !important; transform: translateY(0) !important; visibility: visible !important; position: relative;">
+      <span class="card-badge badge-primary featured-badge ${exam.featured ? '' : 'badge-hidden'}">Featured</span>
       <div style="height: 200px; display: flex; align-items: center; justify-content: center; background: var(--color-bg-secondary); font-size: 4rem;">
         ${emoji}
       </div>
       <div class="card-body">
-        <span class="card-badge badge-accent">${examCategory}</span>
+        <div style="text-align: center; margin-bottom: var(--spacing-sm);">
+          <span class="card-badge badge-accent">${examCategory}</span>
+        </div>
         <h3 class="card-title">${examName}</h3>
         <p class="card-text">${examDescription}</p>
-        <div style="display: flex; gap: 1rem; margin: 0.5rem 0; font-size: 0.875rem; color: var(--color-text-secondary);">
+        <div style="display: flex; gap: 1rem; margin: 0.5rem 0; font-size: 0.875rem; color: var(--color-text-secondary); flex-wrap: wrap;">
           <span>📝 ${examTests} Tests</span>
           <span>❓ ${examQuestions} Questions</span>
           <span>⏱️ ${examDuration}</span>

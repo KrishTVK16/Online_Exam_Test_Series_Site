@@ -267,6 +267,12 @@ a:hover {
   /* Muted Plum on hover */
 }
 
+/* Buttons should maintain their text color on hover */
+a.btn:hover,
+button.btn:hover {
+  color: inherit;
+}
+
 strong,
 b {
   font-weight: var(--font-weight-semibold);

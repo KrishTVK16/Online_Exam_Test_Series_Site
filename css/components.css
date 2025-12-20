@@ -311,6 +311,7 @@
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
     filter: brightness(1.1);
+    color: white !important;
 }
 
 .btn-primary:active {
@@ -329,6 +330,7 @@
     background: var(--color-primary-dark);
     color: white;
     transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
 }
 
 .btn-outline {
@@ -341,6 +343,14 @@
     background: var(--color-primary-dark);
     border-color: var(--color-primary-dark);
     color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Enhanced hover for outline buttons in cards */
+.card .btn-outline:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(62, 58, 82, 0.25);
 }
 
 .btn-sm {
@@ -353,9 +363,84 @@
     font-size: var(--font-size-lg);
 }
 
+.btn-lg:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Hero CTA Buttons */
+.hero-cta-btn {
+    transition: all var(--transition-base) !important;
+}
+
+.hero-cta-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(255, 140, 105, 0.4);
+    filter: brightness(1.1);
+}
+
+.hero-cta-btn-primary {
+    transition: all var(--transition-base) !important;
+}
+
+.hero-cta-btn-primary:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(176, 122, 91, 0.4);
+    filter: brightness(1.1);
+    background: var(--color-accent-copper) !important;
+}
+
+.hero-cta-btn-outline {
+    transition: all var(--transition-base) !important;
+}
+
+.hero-cta-btn-outline:hover {
+    transform: translateY(-3px) scale(1.05);
+    background: var(--color-accent-copper) !important;
+    color: white !important;
+    border-color: var(--color-accent-copper) !important;
+    box-shadow: 0 8px 25px rgba(176, 122, 91, 0.3);
+}
+
+/* General hover enhancement for all buttons */
+.btn:not(.btn-primary):not(.btn-secondary):not(.btn-outline):not(.hero-cta-btn):not(.hero-cta-btn-primary):not(.hero-cta-btn-outline):hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* CTA Section Buttons (white background on gradient) - using section context */
+section[style*="gradient-hero"] .btn.btn-lg:hover {
+    transform: translateY(-3px) scale(1.05) !important;
+    box-shadow: 0 8px 25px rgba(122, 79, 125, 0.3) !important;
+}
+
+section[style*="gradient-hero"] .btn.btn-lg[style*="white"]:hover {
+    background: var(--color-accent-purple) !important;
+    color: white !important;
+}
+
+/* Buttons with gradient background */
+.btn.btn-lg[style*="gradient-button"]:hover {
+    transform: translateY(-3px) scale(1.05) !important;
+    box-shadow: 0 8px 25px rgba(62, 58, 82, 0.4) !important;
+    filter: brightness(1.1) !important;
+}
+
 .btn-block {
     width: 100%;
     display: block;
+}
+
+.btn-block:hover {
+    transform: translateY(-2px);
+}
+
+/* Form submit buttons */
+form .btn-primary:hover,
+form .btn-secondary:hover,
+form .btn-outline:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
 }
 
 /* ===================================
@@ -407,6 +492,29 @@
     text-transform: uppercase;
     border-radius: var(--radius-full);
     margin-bottom: var(--spacing-sm);
+}
+
+/* Featured badge positioned absolutely at top of card */
+.exam-card .featured-badge {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    z-index: 10;
+    margin: 0;
+}
+
+/* Transparent badge for future use - doesn't affect layout */
+.card-badge.badge-hidden {
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    width: 0;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 .badge-primary {
