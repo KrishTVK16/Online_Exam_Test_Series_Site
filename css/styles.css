@@ -262,15 +262,9 @@ a {
   transition: color var(--transition-fast);
 }
 
-a:hover {
+a:hover:not(.btn) {
   color: var(--color-primary-light);
   /* Muted Plum on hover */
-}
-
-/* Buttons should maintain their text color on hover */
-a.btn:hover,
-button.btn:hover {
-  color: inherit;
 }
 
 strong,
