@@ -583,11 +583,11 @@
         <div class="container">
             <div class="contact-stats">
                 <div class="stat-card animate-on-scroll">
-                    <div class="stat-number" data-counter="24" data-suffix="">24</div>
+                    <div class="stat-number" data-counter="24" data-suffix="/7">24/7</div>
                     <div class="stat-label">Hour Support</div>
                 </div>
                 <div class="stat-card animate-on-scroll">
-                    <div class="stat-number" data-counter="2" data-suffix="">2</div>
+                    <div class="stat-number" data-counter="2" data-suffix="+">2+</div>
                     <div class="stat-label">Hour Response</div>
                 </div>
                 <div class="stat-card animate-on-scroll">
@@ -857,6 +857,7 @@
 
         function animateCounter(element) {
             const target = parseFloat(element.getAttribute('data-counter'));
+            const suffix = element.getAttribute('data-suffix') || '';
             const duration = 2000;
             const increment = target / (duration / 16);
             let current = 0;
@@ -865,18 +866,22 @@
             const updateCounter = () => {
                 current += increment;
                 if (current < target) {
+                    let displayValue;
                     if (isDecimal) {
-                        element.textContent = current.toFixed(1);
+                        displayValue = current.toFixed(1);
                     } else {
-                        element.textContent = Math.floor(current).toLocaleString();
+                        displayValue = Math.floor(current).toLocaleString();
                     }
+                    element.textContent = displayValue + suffix;
                     requestAnimationFrame(updateCounter);
                 } else {
+                    let displayValue;
                     if (isDecimal) {
-                        element.textContent = target.toFixed(1);
+                        displayValue = target.toFixed(1);
                     } else {
-                        element.textContent = target.toLocaleString();
+                        displayValue = target.toLocaleString();
                     }
+                    element.textContent = displayValue + suffix;
                 }
             };
             
