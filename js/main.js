@@ -655,9 +655,24 @@ function showSimplifiedHeader(userData) {
     // Update user info content
     const userName = (userData && userData.isLoggedIn) ? (userData.name || userData.email || 'User') : 'Guest';
     userInfoDiv.innerHTML = `
-      <span style="color: var(--color-text-secondary);">👤 ${userName}</span>
-      <a href="#" class="logout-btn btn btn-secondary btn-sm">Logout</a>
+      <span class="user-name" style="color: var(--color-text-secondary); display: flex; align-items: center; gap: 0.5rem;">
+        <span class="user-icon">👤</span>
+        <span class="user-text">${userName}</span>
+      </span>
+      <a href="#" class="logout-btn btn btn-secondary btn-sm" title="Logout">
+        <i class="fas fa-sign-out-alt logout-icon"></i>
+        <span class="logout-text">Logout</span>
+      </a>
     `;
+    
+    // Attach logout event
+    const logoutBtn = userInfoDiv.querySelector('.logout-btn');
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        handleLogout();
+      });
+    }
   }
   
   // Mobile menu
@@ -748,8 +763,14 @@ function updateHeaderForLoggedInUser(userData) {
     
     // Update user info content
     userInfoDiv.innerHTML = `
-      <span style="color: var(--color-text-secondary);">👤 ${userName}</span>
-      <a href="#" class="logout-btn btn btn-secondary btn-sm">Logout</a>
+      <span class="user-name" style="color: var(--color-text-secondary); display: flex; align-items: center; gap: 0.5rem;">
+        <span class="user-icon">👤</span>
+        <span class="user-text">${userName}</span>
+      </span>
+      <a href="#" class="logout-btn btn btn-secondary btn-sm" title="Logout">
+        <i class="fas fa-sign-out-alt logout-icon"></i>
+        <span class="logout-text">Logout</span>
+      </a>
     `;
     
     // Attach logout event

@@ -25,6 +25,8 @@
     padding: var(--spacing-md) var(--spacing-md);
     max-width: var(--container-max);
     margin: 0 auto;
+    gap: var(--spacing-md);
+    min-width: 0;
 }
 
 .header-logo {
@@ -36,6 +38,9 @@
     color: var(--color-primary-dark);
     /* Darker for better visibility */
     transition: transform var(--transition-fast);
+    white-space: nowrap;
+    flex-shrink: 0;
+    min-width: 0;
 }
 
 .header-logo:hover {
@@ -150,7 +155,16 @@
 .header-actions {
     display: flex;
     align-items: center;
-    gap: var(--spacing-md);
+    gap: 0.25rem;
+    margin-left: auto;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    flex-shrink: 0;
+    min-width: 0;
+}
+
+.header-actions > * {
+    flex-shrink: 0;
 }
 
 /* Theme Toggle */
@@ -158,15 +172,22 @@
     background: transparent;
     border: none;
     cursor: pointer;
-    padding: var(--spacing-sm);
+    padding: 0.5rem;
     color: var(--color-text-primary);
     font-size: var(--font-size-xl);
-    transition: transform var(--transition-fast), color var(--transition-fast);
+    transition: all var(--transition-fast);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    min-height: 36px;
 }
 
 .theme-toggle:hover {
     transform: scale(1.1) rotate(15deg);
     color: var(--color-accent-purple);
+    background-color: var(--color-bg);
 }
 
 /* Mobile Menu Toggle */
@@ -443,6 +464,124 @@ form .btn-outline:hover {
     box-shadow: var(--shadow-md);
 }
 
+/* Logout Button with Icon */
+.logout-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.375rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-base);
+}
+
+.logout-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+}
+
+.logout-btn .logout-icon {
+    display: inline-block;
+    margin: 0;
+    flex-shrink: 0;
+}
+
+.logout-btn .logout-text {
+    display: inline-block;
+    white-space: nowrap;
+    font-weight: var(--font-weight-medium);
+}
+
+/* User Name Display */
+.user-name {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding: 0.375rem 0.75rem;
+    border-radius: var(--radius-md);
+    transition: background-color var(--transition-fast);
+    font-weight: var(--font-weight-medium);
+}
+
+.user-name:hover {
+    background-color: var(--color-bg);
+}
+
+.user-name .user-icon {
+    display: inline-block;
+    flex-shrink: 0;
+    font-size: var(--font-size-lg);
+}
+
+.user-name .user-text {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 120px;
+    font-size: var(--font-size-sm);
+}
+
+/* Admin Toggle Button */
+.admin-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.375rem;
+    transition: all var(--transition-base);
+    white-space: nowrap;
+    flex-shrink: 0;
+    border-radius: var(--radius-md);
+}
+
+.admin-toggle-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+}
+
+.admin-toggle-btn.active {
+    background: var(--color-primary-dark);
+    color: white;
+    border-color: var(--color-primary-dark);
+}
+
+.admin-toggle-btn.active:hover {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    transform: translateY(-1px);
+}
+
+.admin-toggle-btn .admin-toggle-icon {
+    display: inline-block;
+    margin: 0;
+    flex-shrink: 0;
+}
+
+.admin-toggle-btn .admin-toggle-text {
+    display: inline-block;
+    white-space: nowrap;
+    font-weight: var(--font-weight-medium);
+}
+
+/* Dashboard View Container */
+.dashboard-view {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* ===================================
    CARDS
    =================================== */
@@ -492,6 +631,11 @@ form .btn-outline:hover {
     text-transform: uppercase;
     border-radius: var(--radius-full);
     margin-bottom: var(--spacing-sm);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 /* Featured badge positioned absolutely at top of card */
