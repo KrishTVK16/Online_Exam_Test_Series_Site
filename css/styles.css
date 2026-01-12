@@ -9,47 +9,48 @@
 
 :root {
   /* ========== Primary Colors ========== */
-  --color-primary: #3E3A52;
-  /* Charcoal Violet - Authority & Focus */
-  --color-primary-light: #7A4F7D;
-  /* Muted Plum - Structure & Emphasis */
-  --color-primary-dark: #2A2735;
-  /* Dark Violet */
+  --color-primary: #6C63FF;
+  /* Electric Indigo - Vibrant & Energetic */
+  --color-primary-light: #8F87FF;
+  /* Lighter Indigo */
+  --color-primary-dark: #4B45B2;
+  /* Darker Indigo */
 
   /* ========== Accent Colors ========== */
-  --color-accent-purple: #7A4F7D;
-  /* Muted Plum - Structure & Emphasis */
-  --color-accent-cyan: #B07A5B;
-  /* Soft Copper - Feedback & Progress */
-  --color-accent-pink: #B07A5B;
-  /* Soft Copper - Feedback & Progress */
-  --color-accent-copper: #B07A5B;
-  /* Soft Copper - Highlights & CTAs */
-  --color-alert-crimson: #9C3A3A;
-  /* Restrained Crimson - Errors & Warnings */
-  --color-success-olive: #6B7A4F;
-  /* Muted Olive - Success states */
+  --color-accent-purple: #6C63FF;
+  /* Same as primary for consistency */
+  --color-accent-cyan: #00BFA6;
+  /* Vibrant Teal - Success & Progress */
+  --color-accent-pink: #FF6584;
+  /* Soft Red - Alerts & Highlights */
+  --color-accent-copper: #FFB86C;
+  /* Soft Orange - Warm accents */
+  --color-alert-crimson: #FF6584;
+  /* Soft Red - Errors */
+  --color-success-olive: #00BFA6;
+  /* Vibrant Teal - Success */
 
   /* ========== Light Mode Colors ========== */
-  --color-bg-light: #C8C2BC;
-  /* Warm Stone - Reading Comfort */
-  --color-bg-secondary-light: #E5E1DC;
-  /* Light Stone - Card backgrounds */
-  --color-text-primary-light: #1A1614;
-  /* Near Black - High contrast */
-  --color-text-secondary-light: #3A3532;
-  /* Dark Brown - Good contrast */
-  --color-border-light: #B0AAA4;
+  --color-bg-light: #FFF5F5;
+  /* Very Pale Warm Gray */
+  --color-bg-secondary-light: #FFFFFF;
+  /* White */
+  --color-text-primary-light: #2D3748;
+  /* Charcoal */
+  --color-text-secondary-light: #4A5568;
+  /* Dark Gray */
+  --color-border-light: #E2E8F0;
 
   /* ========== Dark Mode Colors ========== */
-  --color-bg-dark: #2A2735;
-  /* Dark Charcoal Violet */
-  --color-bg-secondary-dark: #3E3A52;
-  /* Charcoal Violet */
-  --color-text-primary-dark: #EAEAEA;
-  --color-text-secondary-dark: #C8C2BC;
-  /* Warm Stone for text */
-  --color-border-dark: #4A4658;
+  --color-bg-dark: #1A202C;
+  /* Dark Navy */
+  --color-bg-secondary-dark: #2D3748;
+  /* Charcoal */
+  --color-text-primary-dark: #F7FAFC;
+  /* Off-white */
+  --color-text-secondary-dark: #CBD5E0;
+  /* Light Gray */
+  --color-border-dark: #4A5568;
 
   /* ========== Theme Colors (Default: Light) ========== */
   --color-bg: var(--color-bg-light);
@@ -59,14 +60,14 @@
   --color-border: var(--color-border-light);
 
   /* ========== Gradients ========== */
-  --gradient-button: linear-gradient(135deg, #3E3A52, #7A4F7D);
-  /* Primary Button Gradient */
-  --gradient-hero: linear-gradient(135deg, #7A4F7D, #B07A5B);
-  /* Hero/Header Gradient */
-  --gradient-radial-glow: radial-gradient(circle, rgba(122, 79, 125, 0.14), transparent 80%);
-  /* Ambient Glow */
-  --gradient-radial-glow-alt: radial-gradient(circle, rgba(176, 122, 91, 0.12), transparent 82%);
-  /* Alternative Glow */
+  --gradient-button: linear-gradient(135deg, #6C63FF, #00BFA6);
+  /* Indigo to Teal */
+  --gradient-hero: linear-gradient(135deg, #6C63FF, #8F87FF);
+  /* Indigo Gradient */
+  --gradient-radial-glow: radial-gradient(circle, rgba(108, 99, 255, 0.2), transparent 80%);
+  /* Indigo Glow */
+  --gradient-radial-glow-alt: radial-gradient(circle, rgba(0, 191, 166, 0.2), transparent 82%);
+  /* Teal Glow */
   --gradient-overlay: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.7));
 
   /* ========== Typography ========== */

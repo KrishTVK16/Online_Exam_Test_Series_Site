@@ -37,10 +37,14 @@
     font-weight: var(--font-weight-bold);
     color: var(--color-primary-dark);
     /* Darker for better visibility */
-    transition: transform var(--transition-fast);
+    transition: transform var(--transition-fast), color var(--transition-base);
     white-space: nowrap;
     flex-shrink: 0;
     min-width: 0;
+}
+
+body.dark-mode .header-logo {
+    color: var(--color-text-primary);
 }
 
 .header-logo:hover {
@@ -81,9 +85,14 @@
 
 .nav-link:hover,
 .nav-link.active {
-    color: var(--color-primary-light);
     /* Muted Plum for prominence */
     font-weight: var(--font-weight-semibold);
+}
+
+body.dark-mode .nav-link:hover,
+body.dark-mode .nav-link.active {
+    color: #E0C3FC;
+    /* Brighter Lavender for dark mode */
 }
 
 .nav-link.active::after {
@@ -103,7 +112,7 @@
     position: relative;
 }
 
-.nav-item-dropdown > .nav-link {
+.nav-item-dropdown>.nav-link {
     cursor: pointer;
 }
 
@@ -163,7 +172,7 @@
     min-width: 0;
 }
 
-.header-actions > * {
+.header-actions>* {
     flex-shrink: 0;
 }
 
@@ -185,7 +194,7 @@
 }
 
 .theme-toggle:hover {
-    transform: scale(1.1) rotate(15deg);
+    transform: scale(1.1);
     color: var(--color-accent-purple);
     background-color: var(--color-bg);
 }
@@ -576,6 +585,7 @@ form .btn-outline:hover {
         opacity: 0;
         transform: translateY(10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -1363,8 +1373,8 @@ body.dark-mode .hero-badge {
     color: var(--color-text-primary) !important;
 }
 
-body.dark-mode .hero-section-full > div[style*="box-shadow"] {
-    box-shadow: 0 20px 60px rgba(0,0,0,0.4) !important;
+body.dark-mode .hero-section-full>div[style*="box-shadow"] {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4) !important;
 }
 
 /* Dark Mode - Hero Section Quick View */
@@ -1385,6 +1395,6 @@ body.dark-mode .hero-dot-active {
     background: var(--color-accent-copper) !important;
 }
 
-body.dark-mode .hero-section-quick > div > div > div[style*="box-shadow"] {
-    box-shadow: 0 20px 60px rgba(0,0,0,0.4) !important;
+body.dark-mode .hero-section-quick>div>div>div[style*="box-shadow"] {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4) !important;
 }

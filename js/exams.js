@@ -418,7 +418,7 @@ function getItemsPerPage() {
 
 document.addEventListener('DOMContentLoaded', function () {
     console.log('DOM Content Loaded - Checking for exams page...');
-    
+
     if (document.querySelector('.exams-page')) {
         console.log('Exams page detected, initializing...');
         initializeExamsPage();
@@ -429,7 +429,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (document.querySelector('.featured-exams')) {
         renderFeaturedExams();
     }
-    
+
     // Fallback: If examsGrid exists but is empty after a delay, force render
     setTimeout(() => {
         const examsGrid = document.getElementById('examsGrid');
@@ -445,13 +445,13 @@ document.addEventListener('DOMContentLoaded', function () {
 function initializeExamsPage() {
     // Only initialize once
     if (isInitialized) return;
-    
+
     // Reset to page 1 on initial load (ignore any stored state)
     currentPage = 1;
-    
+
     // Ensure filteredExams is initialized with all exams
     filteredExams = [...mockExams];
-    
+
     // Handle URL parameters (e.g., ?category=UPSC)
     const urlParams = new URLSearchParams(window.location.search);
     const categoryParam = urlParams.get('category');
@@ -467,30 +467,30 @@ function initializeExamsPage() {
         isInitialized = true;
         return; // applyFilters() already calls renderExams()
     }
-    
+
     initializeFilters();
     initializeSearch();
     initializeSort();
-    
+
     // Add window resize listener for responsive pagination
     let resizeTimeout;
-    window.addEventListener('resize', function() {
+    window.addEventListener('resize', function () {
         clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(function() {
+        resizeTimeout = setTimeout(function () {
             // Recalculate pagination on resize
             const newItemsPerPage = getItemsPerPage();
             const totalPages = Math.ceil(filteredExams.length / newItemsPerPage);
-            
+
             // Adjust current page if it exceeds total pages after resize
             if (currentPage > totalPages && totalPages > 0) {
                 currentPage = totalPages;
             }
-            
+
             // Re-render with new pagination
             renderExams();
         }, 300); // Debounce: 300ms delay
     });
-    
+
     // Force initial render with a small delay to ensure DOM is ready
     setTimeout(() => {
         renderExams();
@@ -669,7 +669,7 @@ function applyFilters() {
 
     // Reset to page 1 when filters change
     currentPage = 1;
-    
+
     filteredExams = results;
     renderExams();
 }
@@ -693,7 +693,7 @@ function renderExams() {
         console.log('filteredExams was empty, initializing with all exams');
         filteredExams = [...mockExams];
     }
-    
+
     // Ensure container is visible
     container.style.display = 'grid';
     container.style.visibility = 'visible';
@@ -721,7 +721,7 @@ function renderExams() {
     // Calculate pagination with dynamic items per page
     const itemsPerPage = getItemsPerPage();
     const totalPages = Math.ceil(filteredExams.length / itemsPerPage);
-    
+
     // Ensure currentPage is within valid range
     if (currentPage > totalPages && totalPages > 0) {
         currentPage = totalPages;
@@ -729,14 +729,14 @@ function renderExams() {
     if (currentPage < 1) {
         currentPage = 1;
     }
-    
+
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
     const paginatedExams = filteredExams.slice(startIndex, endIndex);
 
     // Render exam cards for current page
     console.log('Rendering exams - Page:', currentPage, 'Total pages:', totalPages, 'Filtered exams:', filteredExams.length, 'Paginated exams:', paginatedExams.length);
-    
+
     if (paginatedExams.length > 0) {
         const cardsHTML = paginatedExams.map((exam, index) => {
             if (!exam) {
@@ -754,9 +754,9 @@ function renderExams() {
                 return '';
             }
         }).filter(html => html.trim() !== '').join('');
-        
+
         console.log('Generated cards HTML length:', cardsHTML.length, 'Cards count:', paginatedExams.length);
-        
+
         if (cardsHTML && cardsHTML.trim() !== '') {
             // Clear container first
             container.innerHTML = '';
@@ -774,9 +774,9 @@ function renderExams() {
             container.style.minHeight = '400px'; // Ensure container has height
             container.style.width = '100%';
             container.style.position = 'relative'; // Ensure positioning context
-            
+
             console.log('Cards rendered successfully. Container children:', container.children.length);
-            
+
             // Force all cards to be visible immediately
             const examCards = container.querySelectorAll('.exam-card');
             examCards.forEach((card, index) => {
@@ -785,13 +785,13 @@ function renderExams() {
                 card.style.transform = 'translateY(0)';
                 card.style.visibility = 'visible';
                 card.classList.add('in-view');
-                
+
                 // Add a small delay for staggered effect if desired (optional)
                 // card.style.transitionDelay = `${index * 0.05}s`;
             });
-            
+
             console.log('Forced visibility on', examCards.length, 'cards');
-            
+
             // Debug: Log container and card dimensions
             console.log('Container dimensions:', {
                 width: container.offsetWidth,
@@ -800,7 +800,7 @@ function renderExams() {
                 visibility: window.getComputedStyle(container).visibility,
                 opacity: window.getComputedStyle(container).opacity
             });
-            
+
             if (examCards.length > 0) {
                 const firstCard = examCards[0];
                 console.log('First card dimensions:', {
@@ -812,7 +812,7 @@ function renderExams() {
                     transform: window.getComputedStyle(firstCard).transform
                 });
             }
-            
+
             // Also reinitialize scroll animations for new elements
             if (typeof initScrollAnimations === 'function') {
                 setTimeout(() => {
@@ -826,7 +826,7 @@ function renderExams() {
     } else {
         container.innerHTML = '';
         console.warn('No exams to display on page', currentPage, 'Total exams:', filteredExams.length, 'Total pages:', totalPages, 'Start index:', startIndex, 'End index:', endIndex);
-        
+
         // If we're on a page with no results but there are exams, go to page 1
         if (filteredExams.length > 0) {
             if (currentPage > totalPages) {
@@ -949,7 +949,7 @@ function createExamCard(exam) {
         console.error('Invalid exam object passed to createExamCard:', exam);
         return '';
     }
-    
+
     const discount = Math.round(((exam.originalPrice - exam.price) / exam.originalPrice) * 100);
 
     // Use emoji as placeholder instead of image
@@ -1133,10 +1133,10 @@ function loadExamDetail() {
     if (examBreadcrumb) {
         examBreadcrumb.textContent = exam.name;
     }
-    
+
     console.log('All exam details populated for:', exam.name);
     console.log('Verification - Exam ID:', exam.id, 'Name:', exam.name, 'Category:', exam.category);
-    
+
     // Verify all data is from the selected exam
     const verification = {
         id: exam.id,
@@ -1148,7 +1148,7 @@ function loadExamDetail() {
         duration: exam.duration
     };
     console.log('Exam data verification:', verification);
-    
+
     // Enroll button handlers
     if (enrollBtn) {
         enrollBtn.addEventListener('click', () => {
@@ -1163,7 +1163,7 @@ function loadExamDetail() {
 
     // Render related exams (excludes current exam)
     renderRelatedExams(exam);
-    
+
     console.log('Exam detail page loaded successfully for exam ID:', examId);
 }
 
@@ -1175,7 +1175,7 @@ function renderRelatedExams(currentExam) {
     }
 
     console.log('Rendering related exams for:', currentExam.name, 'Category:', currentExam.category);
-    
+
     // Filter: same category, exclude current exam
     const related = mockExams
         .filter(exam => {
@@ -1189,7 +1189,7 @@ function renderRelatedExams(currentExam) {
 
     if (related.length > 0) {
         container.innerHTML = related.map(exam => createExamCard(exam)).join('');
-        
+
         // Ensure related exam cards are visible
         const relatedCards = container.querySelectorAll('.exam-card');
         relatedCards.forEach(card => {
