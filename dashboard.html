@@ -55,15 +55,99 @@
         <div class="header-container">
             <a href="index.html" class="header-logo">📚 ExamMaster</a>
             <div class="header-actions">
+                <!-- Side Panel Toggle Button -->
                 <button class="theme-toggle">🌙</button>
-                <button class="admin-toggle-btn btn btn-outline btn-sm" title="Switch to Admin View">
-                    <i class="fas fa-exchange-alt swap-icon mobile-icon"></i>
-                    <i class="fas fa-user-shield admin-toggle-icon desktop-icon"></i>
-                    <span class="admin-toggle-text">Admin</span>
+                <div class="dropdown" id="view-dropdown"
+                    style="display: inline-block !important; margin-right: 0.5rem;">
+                    <button class="dropdown-toggle btn btn-outline btn-sm" id="viewDropdownBtn" aria-expanded="false"
+                        style="color: var(--color-text-primary); border-color: var(--color-border);">
+                        <i class="fas fa-user-circle"></i>
+                        <span class="view-text">GoTo</span>
+                        <i class="fas fa-chevron-down ms-1" style="font-size: 0.7em;"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#" class="dropdown-item active" data-view="user">
+                                <i class="fas fa-user"></i> User
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="dropdown-item" data-view="admin">
+                                <i class="fas fa-user-shield"></i> Admin
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <button class="side-panel-toggle" id="sidePanelToggle" aria-label="Toggle Navigation">
+                    <i class="fas fa-bars"></i>
                 </button>
             </div>
         </div>
     </header>
+
+    <!-- Side Panel Navigation -->
+    <div class="side-panel" id="sidePanel">
+        <div class="side-panel-header">
+            <h3 class="side-panel-title">Navigation</h3>
+            <button class="side-panel-close" id="sidePanelClose" aria-label="Close Navigation">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <!-- User Navigation -->
+        <nav class="side-panel-nav" id="userSideNav">
+            <h4 class="side-panel-section-title">User Dashboard</h4>
+            <ul class="side-panel-nav-list">
+                <li><a href="#user-quick-actions" class="side-panel-nav-link active">
+                    <i class="fas fa-bolt"></i> Quick Actions
+                </a></li>
+                <li><a href="#user-enrolled-exams" class="side-panel-nav-link">
+                    <i class="fas fa-book"></i> Enrolled Exams
+                </a></li>
+                <li><a href="#user-recent-tests" class="side-panel-nav-link">
+                    <i class="fas fa-history"></i> Recent Tests
+                </a></li>
+            </ul>
+        </nav>
+
+        <!-- Admin Navigation -->
+        <nav class="side-panel-nav" id="adminSideNav" style="display: none;">
+            <h4 class="side-panel-section-title">Admin Dashboard</h4>
+            <ul class="side-panel-nav-list">
+                <li><a href="#admin-stats" class="side-panel-nav-link active">
+                    <i class="fas fa-chart-bar"></i> Stats
+                </a></li>
+                <li><a href="#admin-revenue" class="side-panel-nav-link">
+                    <i class="fas fa-dollar-sign"></i> Revenue
+                </a></li>
+                <li><a href="#admin-actions" class="side-panel-nav-link">
+                    <i class="fas fa-cogs"></i> Actions
+                </a></li>
+                <li><a href="#admin-users" class="side-panel-nav-link">
+                    <i class="fas fa-users"></i> Users
+                </a></li>
+                <li><a href="#admin-activity" class="side-panel-nav-link">
+                    <i class="fas fa-chart-line"></i> Activity
+                </a></li>
+                <li><a href="#admin-performance" class="side-panel-nav-link">
+                    <i class="fas fa-tachometer-alt"></i> Performance
+                </a></li>
+                <li><a href="#admin-health" class="side-panel-nav-link">
+                    <i class="fas fa-heartbeat"></i> Health
+                </a></li>
+                <li><a href="#admin-support" class="side-panel-nav-link">
+                    <i class="fas fa-life-ring"></i> Support
+                </a></li>
+                <li><a href="#admin-exams" class="side-panel-nav-link">
+                    <i class="fas fa-graduation-cap"></i> Exams
+                </a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Side Panel Overlay -->
+    <div class="side-panel-overlay" id="sidePanelOverlay"></div>
 
     <!-- User View -->
     <div id="user-view" class="dashboard-view">
@@ -101,7 +185,7 @@
                 </div>
 
                 <!-- Quick Actions -->
-                <div style="margin-bottom: 3rem;">
+                <div id="user-quick-actions" style="margin-bottom: 3rem;">
                     <h2>Quick Actions</h2>
                     <div class="grid-3" style="margin-top: 1.5rem;">
                         <a href="#" class="card card-neo"
@@ -123,7 +207,7 @@
                 </div>
 
                 <!-- Enrolled Exams -->
-                <div style="margin-bottom: 3rem;">
+                <div id="user-enrolled-exams" style="margin-bottom: 3rem;">
                     <h2>My Enrolled Exams</h2>
                     <div class="grid-2" style="margin-top: 1.5rem;">
                         <div class="card">
@@ -192,7 +276,7 @@
                 </div>
 
                 <!-- Recent Test History -->
-                <div>
+                <div id="user-recent-tests">
                     <h2>Recent Tests</h2>
                     <div style="margin-top: 1.5rem; overflow-x: auto; -webkit-overflow-scrolling: touch; width: 100%;">
                         <div class="card" style="min-width: 650px; width: max-content;">
@@ -279,7 +363,7 @@
         <section class="section">
             <div class="container">
                 <!-- Admin Statistics -->
-                <div class="stats-grid" style="margin-bottom: 3rem;">
+                <div id="admin-stats" class="stats-grid" style="margin-bottom: 3rem;">
                     <div class="stat-card card-glass">
                         <div class="stat-icon" style="color: var(--color-accent-purple);"><i class="fas fa-users"></i>
                         </div>
@@ -316,7 +400,7 @@
                 </div>
 
                 <!-- Revenue Overview -->
-                <div style="margin-bottom: 3rem;">
+                <div id="admin-revenue" style="margin-bottom: 3rem;">
                     <h2 style="margin-bottom: 1.5rem;">Revenue Overview</h2>
                     <div class="grid-3" style="margin-top: 1.5rem;">
                         <div class="card">
@@ -376,7 +460,7 @@
                 </div>
 
                 <!-- Admin Quick Actions -->
-                <div style="margin-bottom: 3rem;">
+                <div id="admin-actions" style="margin-bottom: 3rem;">
                     <h2>Admin Actions</h2>
                     <div class="grid-4" style="margin-top: 1.5rem;">
                         <a href="#" class="card card-neo"
@@ -419,11 +503,13 @@
                 </div>
 
                 <!-- Recent Users -->
-                <div style="margin-bottom: 3rem;">
+                <div id="admin-users" style="margin-bottom: 3rem;">
                     <div
-                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                        style="display: flex; justify-content: center; align-items: center; margin-bottom: 1.5rem; position: relative;">
                         <h2 style="margin: 0;">Recent Users</h2>
-                        <button class="btn btn-primary btn-sm">View All</button>
+                        <button class="btn btn-primary btn-sm"
+                            style="position: absolute; right: 0; top: 50%; transform: translateY(-50%);">View
+                            All</button>
                     </div>
                     <div style="overflow-x: auto; -webkit-overflow-scrolling: touch; width: 100%;">
                         <div class="card" style="min-width: 750px; width: max-content;">
@@ -508,11 +594,12 @@
                 </div>
 
                 <!-- System Activity & Recent Logs -->
-                <div style="margin-bottom: 3rem;">
+                <div id="admin-activity" style="margin-bottom: 3rem;">
                     <div
-                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                        style="display: flex; justify-content: center; align-items: center; margin-bottom: 1.5rem; position: relative;">
                         <h2 style="margin: 0;">System Activity</h2>
-                        <button class="btn btn-secondary btn-sm">
+                        <button class="btn btn-secondary btn-sm"
+                            style="position: absolute; right: 0; top: 50%; transform: translateY(-50%);">
                             <i class="fas fa-download"></i> Export Logs
                         </button>
                     </div>
@@ -577,7 +664,7 @@
                 </div>
 
                 <!-- Performance Analytics -->
-                <div style="margin-bottom: 3rem;">
+                <div id="admin-performance" style="margin-bottom: 3rem;">
                     <h2 style="margin-bottom: 1.5rem;">Performance Analytics</h2>
                     <div class="grid-2" style="margin-top: 1.5rem;">
                         <div class="card">
@@ -642,7 +729,7 @@
                 </div>
 
                 <!-- System Health & Monitoring -->
-                <div style="margin-bottom: 3rem;">
+                <div id="admin-health" style="margin-bottom: 3rem;">
                     <h2 style="margin-bottom: 1.5rem;">System Health</h2>
                     <div class="grid-3" style="margin-top: 1.5rem;">
                         <div class="card">
@@ -689,11 +776,12 @@
                 </div>
 
                 <!-- Support & Tickets -->
-                <div style="margin-bottom: 3rem;">
+                <div id="admin-support" style="margin-bottom: 3rem;">
                     <div
-                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                        style="display: flex; justify-content: center; align-items: center; margin-bottom: 1.5rem; position: relative;">
                         <h2 style="margin: 0;">Support Tickets</h2>
-                        <button class="btn btn-primary btn-sm">
+                        <button class="btn btn-primary btn-sm"
+                            style="position: absolute; right: 0; top: 50%; transform: translateY(-50%);">
                             <i class="fas fa-plus"></i> New Ticket
                         </button>
                     </div>
@@ -772,11 +860,12 @@
                 </div>
 
                 <!-- Exam Management -->
-                <div>
+                <div id="admin-exams">
                     <div
-                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                        style="display: flex; justify-content: center; align-items: center; margin-bottom: 1.5rem; position: relative;">
                         <h2 style="margin: 0;">Exam Management</h2>
-                        <button class="btn btn-primary btn-sm">
+                        <button class="btn btn-primary btn-sm"
+                            style="position: absolute; right: 0; top: 50%; transform: translateY(-50%);">
                             <i class="fas fa-plus"></i> Add New Exam
                         </button>
                     </div>
@@ -898,79 +987,293 @@
                 }
             }
 
-            // Admin/User View Toggle
-            const adminToggleBtn = document.querySelector('.admin-toggle-btn');
+            // Side Panel Navigation
+            const sidePanel = document.getElementById('sidePanel');
+            const sidePanelToggle = document.getElementById('sidePanelToggle');
+            const sidePanelClose = document.getElementById('sidePanelClose');
+            const sidePanelOverlay = document.getElementById('sidePanelOverlay');
+            const userSideNav = document.getElementById('userSideNav');
+            const adminSideNav = document.getElementById('adminSideNav');
+
+            // Toggle Side Panel
+            function openSidePanel() {
+                sidePanel.classList.add('active');
+                sidePanelOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent background scroll
+            }
+
+            function closeSidePanel() {
+                sidePanel.classList.remove('active');
+                sidePanelOverlay.classList.remove('active');
+                document.body.style.overflow = ''; // Restore scroll
+            }
+
+            // Event Listeners
+            sidePanelToggle.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                openSidePanel();
+            });
+
+            sidePanelClose.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                closeSidePanel();
+            });
+
+            sidePanelOverlay.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                closeSidePanel();
+            });
+
+            // Touch support for mobile
+            sidePanelToggle.addEventListener('touchstart', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                openSidePanel();
+            }, { passive: false });
+
+            sidePanelClose.addEventListener('touchstart', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                closeSidePanel();
+            }, { passive: false });
+
+            sidePanelOverlay.addEventListener('touchstart', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                closeSidePanel();
+            }, { passive: false });
+
+            // Close panel on Escape key
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && sidePanel.classList.contains('active')) {
+                    closeSidePanel();
+                }
+            });
+
+            // Smooth scrolling for navigation links
+            function smoothScrollTo(targetId) {
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    const offsetTop = targetElement.offsetTop - 80; // Account for header height
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+
+            // Update active navigation state
+            function updateActiveNav(targetId) {
+                // Remove active class from all links
+                const allLinks = document.querySelectorAll('.side-panel-nav-link');
+                allLinks.forEach(link => link.classList.remove('active'));
+
+                // Add active class to clicked link
+                const activeLink = document.querySelector(`.side-panel-nav-link[href="${targetId}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
+            }
+
+            // Add click listeners to side panel navigation links
+            const sidePanelLinks = document.querySelectorAll('.side-panel-nav-link');
+            sidePanelLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    
+                    // Update active state
+                    updateActiveNav(targetId);
+                    
+                    // Smooth scroll to section
+                    smoothScrollTo(targetId);
+                    
+                    // Close side panel on mobile after navigation
+                    if (window.innerWidth <= 1023) {
+                        closeSidePanel();
+                    }
+                });
+
+                // Touch support for mobile
+                link.addEventListener('touchstart', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    
+                    // Update active state
+                    updateActiveNav(targetId);
+                    
+                    // Smooth scroll to section
+                    smoothScrollTo(targetId);
+                    
+                    // Close side panel on mobile after navigation
+                    if (window.innerWidth <= 1023) {
+                        closeSidePanel();
+                    }
+                }, { passive: false });
+            });
+
+            // Admin/User View Toggle (Dropdown)
             const userView = document.getElementById('user-view');
             const adminView = document.getElementById('admin-view');
-            const adminToggleText = document.querySelector('.admin-toggle-text');
-            const adminToggleIcon = document.querySelector('.admin-toggle-icon');
 
-            // Check if admin view was active (from localStorage)
-            const isAdminView = localStorage.getItem('dashboardView') === 'admin';
+            // Dropdown elements
+            const dropdownBtn = document.querySelector('#view-dropdown .dropdown-toggle');
+            const dropdownMenu = document.querySelector('#view-dropdown .dropdown-menu');
+            const dropdownItems = document.querySelectorAll('#view-dropdown .dropdown-item');
+            const dropdownBtnText = dropdownBtn ? dropdownBtn.querySelector('.view-text') : null;
 
-            // Initialize view state
-            function setView(isAdmin) {
+            // Function to set view
+            function setView(viewType) {
+                // viewType can be 'user' or 'admin'
+                const isUser = viewType === 'user';
+
+                if (isUser) {
+                    userView.style.display = 'block';
+                    adminView.style.display = 'none';
+                    if (dropdownBtnText) dropdownBtnText.textContent = 'GoTo';
+                    
+                    // Show user navigation, hide admin navigation
+                    if (userSideNav) userSideNav.style.display = 'block';
+                    if (adminSideNav) adminSideNav.style.display = 'none';
+                } else {
+                    userView.style.display = 'none';
+                    adminView.style.display = 'block';
+                    if (dropdownBtnText) dropdownBtnText.textContent = 'GoTo';
+                    
+                    // Show admin navigation, hide user navigation
+                    if (userSideNav) userSideNav.style.display = 'none';
+                    if (adminSideNav) adminSideNav.style.display = 'block';
+                }
+
+                // Update active state in dropdown
+                dropdownItems.forEach(item => {
+                    if (item.dataset.view === viewType) {
+                        item.classList.add('active');
+                    } else {
+                        item.classList.remove('active');
+                    }
+                });
+
+                // Update User Profile based on view
                 const userNameText = document.querySelector('.user-name .user-text');
                 const userIcon = document.querySelector('.user-name .user-icon');
-                // Try to find mobile user span (created by main.js without specific class, so we use structural selector)
                 const mobileUserInfo = document.querySelector('.user-info-mobile');
                 const userNameSpanMobile = mobileUserInfo ? mobileUserInfo.querySelector('span') : document.querySelector('.user-name-mobile');
 
-                // Helper to get current user name
+                // Helper to get real user name
                 const getUserName = () => {
                     const userData = localStorage.getItem('userData');
                     if (userData) {
-                        const user = JSON.parse(userData);
-                        return user.name || user.email || 'User';
+                        try {
+                            const user = JSON.parse(userData);
+                            return user.name || user.email || 'User';
+                        } catch (e) { return 'User'; }
                     }
                     return 'User';
                 };
 
-                if (isAdmin) {
-                    userView.style.display = 'none';
-                    adminView.style.display = 'block';
-                    adminToggleBtn.classList.add('active');
-
-                    adminToggleText.textContent = 'GoTo User';
-                    adminToggleIcon.className = 'fas fa-user admin-toggle-icon desktop-icon';
-
-                    // Update User Label to Admin
-                    if (userNameText) userNameText.textContent = 'Admin';
-                    if (userIcon) userIcon.textContent = '🛡️';
-                    if (userNameSpanMobile) userNameSpanMobile.textContent = '�️ Admin';
-
-                    adminToggleBtn.title = 'Switch to User View';
-                    localStorage.setItem('dashboardView', 'admin');
-                } else {
-                    userView.style.display = 'block';
-                    adminView.style.display = 'none';
-                    adminToggleBtn.classList.remove('active');
-
-                    adminToggleText.textContent = 'GoTo Admin';
-                    adminToggleIcon.className = 'fas fa-user-shield admin-toggle-icon desktop-icon';
-
-                    // Update User Label to User Name
+                if (isUser) {
+                    // Restore User Profile text
                     const realName = getUserName();
                     if (userNameText) userNameText.textContent = realName;
                     if (userIcon) userIcon.textContent = '👤';
                     if (userNameSpanMobile) userNameSpanMobile.textContent = `👤 ${realName}`;
+                } else {
+                    // Update User Label to Admin
+                    if (userNameText) userNameText.textContent = 'Admin';
+                    if (userIcon) userIcon.textContent = '🛡️';
+                    if (userNameSpanMobile) userNameSpanMobile.textContent = `🛡️ Admin`;
+                }
 
-                    adminToggleBtn.title = 'Switch to Admin View';
-                    localStorage.setItem('dashboardView', 'user');
+                // Save preference
+                localStorage.setItem('dashboardView', viewType);
+                
+                // Reset navigation active states
+                const allLinks = document.querySelectorAll('.side-panel-nav-link');
+                allLinks.forEach(link => link.classList.remove('active'));
+                
+                // Set first link as active for the current view
+                const firstActiveLink = document.querySelector(`#${isUser ? 'userSideNav' : 'adminSideNav'} .side-panel-nav-link`);
+                if (firstActiveLink) {
+                    firstActiveLink.classList.add('active');
                 }
             }
 
-            // Set initial view
-            setView(isAdminView);
+            // Initialize view
+            const savedView = localStorage.getItem('dashboardView') || 'user';
+            setView(savedView);
 
-            // Toggle view on button click
-            if (adminToggleBtn) {
-                adminToggleBtn.addEventListener('click', function (e) {
+            // Toggle Dropdown
+            if (dropdownBtn && dropdownMenu) {
+                dropdownBtn.addEventListener('click', function (e) {
                     e.preventDefault();
-                    const currentIsAdmin = adminView.style.display !== 'none';
-                    setView(!currentIsAdmin);
+                    e.stopPropagation();
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+
+                    if (isExpanded) {
+                        this.setAttribute('aria-expanded', 'false');
+                        dropdownMenu.classList.remove('show');
+                    } else {
+                        this.setAttribute('aria-expanded', 'true');
+                        dropdownMenu.classList.add('show');
+                    }
                 });
+
+                // Touch support for mobile devices
+                dropdownBtn.addEventListener('touchstart', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+
+                    if (isExpanded) {
+                        this.setAttribute('aria-expanded', 'false');
+                        dropdownMenu.classList.remove('show');
+                    } else {
+                        this.setAttribute('aria-expanded', 'true');
+                        dropdownMenu.classList.add('show');
+                    }
+                }, { passive: false });
+
+                // Close dropdown when clicking outside
+                document.addEventListener('click', function (e) {
+                    if (!dropdownBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+                        dropdownBtn.setAttribute('aria-expanded', 'false');
+                        dropdownMenu.classList.remove('show');
+                    }
+                });
+
+                // Close dropdown when touching outside (mobile)
+                document.addEventListener('touchstart', function (e) {
+                    if (!dropdownBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+                        dropdownBtn.setAttribute('aria-expanded', 'false');
+                        dropdownMenu.classList.remove('show');
+                    }
+                }, { passive: false });
             }
+
+            // Add click listeners to items
+            dropdownItems.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const selectedView = item.dataset.view;
+                    setView(selectedView);
+
+                    // Close dropdown
+                    dropdownBtn.setAttribute('aria-expanded', 'false');
+                    dropdownMenu.classList.remove('show');
+                });
+            });
+
+            // Handle window resize
+            window.addEventListener('resize', function () {
+                // Close side panel on resize to desktop
+                if (window.innerWidth > 1023 && sidePanel.classList.contains('active')) {
+                    closeSidePanel();
+                }
+            });
         });
     </script>
 </body>
