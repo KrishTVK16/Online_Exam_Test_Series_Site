@@ -105,14 +105,43 @@
         }
 
         .contact-card-icon {
-            font-size: 3rem;
+            font-size: 2.5rem;
             margin-bottom: 1.5rem;
-            display: inline-block;
-            transition: transform 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgba(108, 99, 255, 0.1);
+            color: var(--color-primary);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-card-icon::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: var(--gradient-button);
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.4s ease;
         }
 
         .contact-card:hover .contact-card-icon {
-            transform: scale(1.2) rotate(5deg);
+            transform: scale(1.1) rotate(5deg);
+            color: white;
+            box-shadow: 0 10px 25px rgba(108, 99, 255, 0.4);
+        }
+
+        .contact-card:hover .contact-card-icon::after {
+            opacity: 1;
         }
 
         .contact-card h3 {
@@ -665,25 +694,33 @@
             </h2>
             <div class="grid-4" style="margin-bottom: 3rem;">
                 <div class="contact-card animate-on-scroll">
-                    <div class="contact-card-icon">📧</div>
+                    <div class="contact-card-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
                     <h3>Email Us</h3>
                     <p>Send us an email anytime</p>
                     <a href="mailto:support@exammaster.com">support@exammaster.com</a>
                 </div>
                 <div class="contact-card animate-on-scroll">
-                    <div class="contact-card-icon">📞</div>
+                    <div class="contact-card-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
                     <h3>Call Us</h3>
                     <p>Mon-Sat, 9 AM - 6 PM IST</p>
                     <a href="tel:+911234567890">+91 1234567890</a>
                 </div>
                 <div class="contact-card animate-on-scroll">
-                    <div class="contact-card-icon">📍</div>
+                    <div class="contact-card-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
                     <h3>Visit Us</h3>
                     <p>Our office location</p>
                     <a href="https://maps.google.com" target="_blank">New Delhi, India</a>
                 </div>
                 <div class="contact-card animate-on-scroll">
-                    <div class="contact-card-icon">🌐</div>
+                    <div class="contact-card-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
                     <h3>Follow Us</h3>
                     <p>Connect on social media</p>
                     <div

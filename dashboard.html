@@ -78,7 +78,7 @@
                         </li>
                     </ul>
                 </div>
-                
+
                 <button class="side-panel-toggle" id="sidePanelToggle" aria-label="Toggle Navigation">
                     <i class="fas fa-bars"></i>
                 </button>
@@ -94,20 +94,20 @@
                 <i class="fas fa-times"></i>
             </button>
         </div>
-        
+
         <!-- User Navigation -->
         <nav class="side-panel-nav" id="userSideNav">
             <h4 class="side-panel-section-title">User Dashboard</h4>
             <ul class="side-panel-nav-list">
                 <li><a href="#user-quick-actions" class="side-panel-nav-link active">
-                    <i class="fas fa-bolt"></i> Quick Actions
-                </a></li>
+                        <i class="fas fa-bolt"></i> Quick Actions
+                    </a></li>
                 <li><a href="#user-enrolled-exams" class="side-panel-nav-link">
-                    <i class="fas fa-book"></i> Enrolled Exams
-                </a></li>
+                        <i class="fas fa-book"></i> Enrolled Exams
+                    </a></li>
                 <li><a href="#user-recent-tests" class="side-panel-nav-link">
-                    <i class="fas fa-history"></i> Recent Tests
-                </a></li>
+                        <i class="fas fa-history"></i> Recent Tests
+                    </a></li>
             </ul>
         </nav>
 
@@ -116,32 +116,32 @@
             <h4 class="side-panel-section-title">Admin Dashboard</h4>
             <ul class="side-panel-nav-list">
                 <li><a href="#admin-stats" class="side-panel-nav-link active">
-                    <i class="fas fa-chart-bar"></i> Stats
-                </a></li>
+                        <i class="fas fa-chart-bar"></i> Stats
+                    </a></li>
                 <li><a href="#admin-revenue" class="side-panel-nav-link">
-                    <i class="fas fa-dollar-sign"></i> Revenue
-                </a></li>
+                        <i class="fas fa-dollar-sign"></i> Revenue
+                    </a></li>
                 <li><a href="#admin-actions" class="side-panel-nav-link">
-                    <i class="fas fa-cogs"></i> Actions
-                </a></li>
+                        <i class="fas fa-cogs"></i> Actions
+                    </a></li>
                 <li><a href="#admin-users" class="side-panel-nav-link">
-                    <i class="fas fa-users"></i> Users
-                </a></li>
+                        <i class="fas fa-users"></i> Users
+                    </a></li>
                 <li><a href="#admin-activity" class="side-panel-nav-link">
-                    <i class="fas fa-chart-line"></i> Activity
-                </a></li>
+                        <i class="fas fa-chart-line"></i> Activity
+                    </a></li>
                 <li><a href="#admin-performance" class="side-panel-nav-link">
-                    <i class="fas fa-tachometer-alt"></i> Performance
-                </a></li>
+                        <i class="fas fa-tachometer-alt"></i> Performance
+                    </a></li>
                 <li><a href="#admin-health" class="side-panel-nav-link">
-                    <i class="fas fa-heartbeat"></i> Health
-                </a></li>
+                        <i class="fas fa-heartbeat"></i> Health
+                    </a></li>
                 <li><a href="#admin-support" class="side-panel-nav-link">
-                    <i class="fas fa-life-ring"></i> Support
-                </a></li>
+                        <i class="fas fa-life-ring"></i> Support
+                    </a></li>
                 <li><a href="#admin-exams" class="side-panel-nav-link">
-                    <i class="fas fa-graduation-cap"></i> Exams
-                </a></li>
+                        <i class="fas fa-graduation-cap"></i> Exams
+                    </a></li>
             </ul>
         </nav>
     </div>
@@ -278,69 +278,95 @@
                 <!-- Recent Test History -->
                 <div id="user-recent-tests">
                     <h2>Recent Tests</h2>
-                    <div style="margin-top: 1.5rem; overflow-x: auto; -webkit-overflow-scrolling: touch; width: 100%;">
-                        <div class="card" style="min-width: 650px; width: max-content;">
-                            <div class="card-body" style="padding: 0;">
+                    <div class="grid-3" style="margin-top: 1.5rem;">
+                        <!-- Test Card 1 -->
+                        <div class="card">
+                            <div class="card-body">
                                 <div
-                                    style="display: grid; gap: 0; border-radius: var(--radius-lg); overflow: hidden; width: 100%;">
-                                    <div
-                                        style="display: grid; grid-template-columns: 250px 100px 100px 150px; gap: 1rem; padding: 1rem; border-bottom: 1px solid var(--color-border); font-weight: 600; background: var(--color-bg); width: 100%; box-sizing: border-box;">
-                                        <div style="white-space: nowrap;">Test Name</div>
-                                        <div style="text-align: center; white-space: nowrap;">Score</div>
-                                        <div style="text-align: center; white-space: nowrap;">Rank</div>
-                                        <div style="text-align: center; white-space: nowrap;">Date</div>
+                                    style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                                    <div>
+                                        <h3 style="font-size: 1rem; margin-bottom: 0.25rem;">UPSC Prelims Mock Test #5
+                                        </h3>
+                                        <span class="card-badge badge-primary">UPSC</span>
                                     </div>
-                                    <div
-                                        style="display: grid; grid-template-columns: 250px 100px 100px 150px; gap: 1rem; padding: 1rem; border-bottom: 1px solid var(--color-border); width: 100%; box-sizing: border-box;">
-                                        <div>
-                                            <div style="font-weight: 500; white-space: nowrap;">UPSC Prelims Mock Test
-                                                #5</div>
-                                            <div
-                                                style="font-size: 0.875rem; color: var(--color-text-secondary); white-space: nowrap;">
-                                                UPSC</div>
-                                        </div>
-                                        <div
-                                            style="text-align: center; font-weight: 600; color: #27AE60; white-space: nowrap;">
-                                            85%</div>
-                                        <div style="text-align: center; white-space: nowrap;">#245</div>
-                                        <div
-                                            style="text-align: center; font-size: 0.875rem; color: var(--color-text-secondary); white-space: nowrap;">
-                                            18 Dec 2025</div>
+                                    <div style="text-align: right;">
+                                        <div style="font-size: 1.5rem; font-weight: 700; color: #27AE60;">85%</div>
+                                        <div style="font-size: 0.75rem; color: var(--color-text-secondary);">Score</div>
                                     </div>
-                                    <div
-                                        style="display: grid; grid-template-columns: 250px 100px 100px 150px; gap: 1rem; padding: 1rem; border-bottom: 1px solid var(--color-border); width: 100%; box-sizing: border-box;">
-                                        <div>
-                                            <div style="font-weight: 500; white-space: nowrap;">SSC CGL Mock Test #12
-                                            </div>
-                                            <div
-                                                style="font-size: 0.875rem; color: var(--color-text-secondary); white-space: nowrap;">
-                                                SSC</div>
-                                        </div>
-                                        <div
-                                            style="text-align: center; font-weight: 600; color: #27AE60; white-space: nowrap;">
-                                            72%</div>
-                                        <div style="text-align: center; white-space: nowrap;">#567</div>
-                                        <div
-                                            style="text-align: center; font-size: 0.875rem; color: var(--color-text-secondary); white-space: nowrap;">
-                                            17 Dec 2025</div>
+                                </div>
+                                <div
+                                    style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--color-border); padding-top: 1rem; margin-top: 1rem;">
+                                    <div>
+                                        <div style="font-size: 0.875rem; font-weight: 600;">#245</div>
+                                        <div style="font-size: 0.75rem; color: var(--color-text-secondary);">Rank</div>
                                     </div>
-                                    <div
-                                        style="display: grid; grid-template-columns: 250px 100px 100px 150px; gap: 1rem; padding: 1rem; width: 100%; box-sizing: border-box;">
-                                        <div>
-                                            <div style="font-weight: 500; white-space: nowrap;">UPSC Prelims Mock Test
-                                                #4</div>
-                                            <div
-                                                style="font-size: 0.875rem; color: var(--color-text-secondary); white-space: nowrap;">
-                                                UPSC</div>
-                                        </div>
-                                        <div
-                                            style="text-align: center; font-weight: 600; color: #F39C12; white-space: nowrap;">
-                                            68%</div>
-                                        <div style="text-align: center; white-space: nowrap;">#789</div>
-                                        <div
-                                            style="text-align: center; font-size: 0.875rem; color: var(--color-text-secondary); white-space: nowrap;">
-                                            15 Dec 2025</div>
+                                    <div>
+                                        <div style="font-size: 0.875rem; font-weight: 600;">18 Dec 2025</div>
+                                        <div style="font-size: 0.75rem; color: var(--color-text-secondary);">Date</div>
                                     </div>
+                                    <a href="#" class="btn btn-outline btn-sm"
+                                        style="padding: 0.25rem 0.75rem;">View</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Test Card 2 -->
+                        <div class="card">
+                            <div class="card-body">
+                                <div
+                                    style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                                    <div>
+                                        <h3 style="font-size: 1rem; margin-bottom: 0.25rem;">SSC CGL Mock Test #12</h3>
+                                        <span class="card-badge badge-accent">SSC</span>
+                                    </div>
+                                    <div style="text-align: right;">
+                                        <div style="font-size: 1.5rem; font-weight: 700; color: #27AE60;">72%</div>
+                                        <div style="font-size: 0.75rem; color: var(--color-text-secondary);">Score</div>
+                                    </div>
+                                </div>
+                                <div
+                                    style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--color-border); padding-top: 1rem; margin-top: 1rem;">
+                                    <div>
+                                        <div style="font-size: 0.875rem; font-weight: 600;">#567</div>
+                                        <div style="font-size: 0.75rem; color: var(--color-text-secondary);">Rank</div>
+                                    </div>
+                                    <div>
+                                        <div style="font-size: 0.875rem; font-weight: 600;">17 Dec 2025</div>
+                                        <div style="font-size: 0.75rem; color: var(--color-text-secondary);">Date</div>
+                                    </div>
+                                    <a href="#" class="btn btn-outline btn-sm"
+                                        style="padding: 0.25rem 0.75rem;">View</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Test Card 3 -->
+                        <div class="card">
+                            <div class="card-body">
+                                <div
+                                    style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                                    <div>
+                                        <h3 style="font-size: 1rem; margin-bottom: 0.25rem;">UPSC Prelims Mock Test #4
+                                        </h3>
+                                        <span class="card-badge badge-primary">UPSC</span>
+                                    </div>
+                                    <div style="text-align: right;">
+                                        <div style="font-size: 1.5rem; font-weight: 700; color: #F39C12;">68%</div>
+                                        <div style="font-size: 0.75rem; color: var(--color-text-secondary);">Score</div>
+                                    </div>
+                                </div>
+                                <div
+                                    style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--color-border); padding-top: 1rem; margin-top: 1rem;">
+                                    <div>
+                                        <div style="font-size: 0.875rem; font-weight: 600;">#789</div>
+                                        <div style="font-size: 0.75rem; color: var(--color-text-secondary);">Rank</div>
+                                    </div>
+                                    <div>
+                                        <div style="font-size: 0.875rem; font-weight: 600;">15 Dec 2025</div>
+                                        <div style="font-size: 0.75rem; color: var(--color-text-secondary);">Date</div>
+                                    </div>
+                                    <a href="#" class="btn btn-outline btn-sm"
+                                        style="padding: 0.25rem 0.75rem;">View</a>
                                 </div>
                             </div>
                         </div>
@@ -511,82 +537,109 @@
                             style="position: absolute; right: 0; top: 50%; transform: translateY(-50%);">View
                             All</button>
                     </div>
-                    <div style="overflow-x: auto; -webkit-overflow-scrolling: touch; width: 100%;">
-                        <div class="card" style="min-width: 750px; width: max-content;">
-                            <div class="card-body" style="padding: 0;">
-                                <div
-                                    style="display: grid; gap: 0; border-radius: var(--radius-lg); overflow: hidden; width: 100%;">
+                    <div class="grid-3" style="margin-top: 1.5rem;">
+                        <!-- User Card 1 -->
+                        <div class="card">
+                            <div class="card-body">
+                                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
                                     <div
-                                        style="display: grid; grid-template-columns: 200px 200px 80px 120px 100px; gap: 1rem; padding: 1rem; border-bottom: 1px solid var(--color-border); font-weight: 600; background: var(--color-bg); width: 100%; box-sizing: border-box;">
-                                        <div style="white-space: nowrap;">Name</div>
-                                        <div style="white-space: nowrap;">Email</div>
-                                        <div style="text-align: center; white-space: nowrap;">Exams</div>
-                                        <div style="text-align: center; white-space: nowrap;">Status</div>
-                                        <div style="text-align: center; white-space: nowrap;">Actions</div>
-                                    </div>
-                                    <div
-                                        style="display: grid; grid-template-columns: 200px 200px 80px 120px 100px; gap: 1rem; padding: 1rem; border-bottom: 1px solid var(--color-border); width: 100%; box-sizing: border-box;">
-                                        <div>
-                                            <div style="font-weight: 500; white-space: nowrap;">John Doe</div>
-                                            <div
-                                                style="font-size: 0.875rem; color: var(--color-text-secondary); white-space: nowrap;">
-                                                Member since Dec 2024</div>
-                                        </div>
-                                        <div
-                                            style="font-size: 0.875rem; color: var(--color-text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                        style="width: 48px; height: 48px; border-radius: 50%; background: var(--color-primary); color: white; display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">
+                                        JD</div>
+                                    <div>
+                                        <h3 style="font-size: 1.125rem; margin-bottom: 0.25rem;">John Doe</h3>
+                                        <div style="font-size: 0.875rem; color: var(--color-text-secondary);">
                                             john.doe@example.com</div>
-                                        <div style="text-align: center; font-weight: 600; white-space: nowrap;">5</div>
-                                        <div style="text-align: center;">
-                                            <span class="card-badge badge-primary"
-                                                style="background: #27AE60; color: white; white-space: nowrap; display: inline-block;">Active</span>
-                                        </div>
-                                        <div style="text-align: center;">
-                                            <button class="btn btn-secondary btn-sm"
-                                                style="padding: 0.25rem 0.75rem; font-size: 0.75rem; white-space: nowrap;">Edit</button>
-                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                                    <div
+                                        style="background: var(--color-bg); padding: 0.5rem; border-radius: var(--radius-sm); text-align: center;">
+                                        <div style="font-weight: 600; font-size: 1.125rem;">5</div>
+                                        <div style="font-size: 0.75rem; color: var(--color-text-secondary);">Exams</div>
                                     </div>
                                     <div
-                                        style="display: grid; grid-template-columns: 200px 200px 80px 120px 100px; gap: 1rem; padding: 1rem; border-bottom: 1px solid var(--color-border); width: 100%; box-sizing: border-box;">
-                                        <div>
-                                            <div style="font-weight: 500; white-space: nowrap;">Jane Smith</div>
-                                            <div
-                                                style="font-size: 0.875rem; color: var(--color-text-secondary); white-space: nowrap;">
-                                                Member since Nov 2024</div>
+                                        style="background: var(--color-bg); padding: 0.5rem; border-radius: var(--radius-sm); text-align: center;">
+                                        <div style="font-weight: 600; font-size: 1.125rem; color: #27AE60;">Active</div>
+                                        <div style="font-size: 0.75rem; color: var(--color-text-secondary);">Status
                                         </div>
-                                        <div
-                                            style="font-size: 0.875rem; color: var(--color-text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                    </div>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span style="font-size: 0.75rem; color: var(--color-text-secondary);">Since Dec
+                                        2024</span>
+                                    <button class="btn btn-outline btn-sm">Edit</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- User Card 2 -->
+                        <div class="card">
+                            <div class="card-body">
+                                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                                    <div
+                                        style="width: 48px; height: 48px; border-radius: 50%; background: var(--color-accent-purple); color: white; display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">
+                                        JS</div>
+                                    <div>
+                                        <h3 style="font-size: 1.125rem; margin-bottom: 0.25rem;">Jane Smith</h3>
+                                        <div style="font-size: 0.875rem; color: var(--color-text-secondary);">
                                             jane.smith@example.com</div>
-                                        <div style="text-align: center; font-weight: 600; white-space: nowrap;">3</div>
-                                        <div style="text-align: center;">
-                                            <span class="card-badge badge-primary"
-                                                style="background: #27AE60; color: white; white-space: nowrap; display: inline-block;">Active</span>
-                                        </div>
-                                        <div style="text-align: center;">
-                                            <button class="btn btn-secondary btn-sm"
-                                                style="padding: 0.25rem 0.75rem; font-size: 0.75rem; white-space: nowrap;">Edit</button>
-                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                                    <div
+                                        style="background: var(--color-bg); padding: 0.5rem; border-radius: var(--radius-sm); text-align: center;">
+                                        <div style="font-weight: 600; font-size: 1.125rem;">3</div>
+                                        <div style="font-size: 0.75rem; color: var(--color-text-secondary);">Exams</div>
                                     </div>
                                     <div
-                                        style="display: grid; grid-template-columns: 200px 200px 80px 120px 100px; gap: 1rem; padding: 1rem; width: 100%; box-sizing: border-box;">
-                                        <div>
-                                            <div style="font-weight: 500; white-space: nowrap;">Mike Johnson</div>
-                                            <div
-                                                style="font-size: 0.875rem; color: var(--color-text-secondary); white-space: nowrap;">
-                                                Member since Oct 2024</div>
-                                        </div>
-                                        <div
-                                            style="font-size: 0.875rem; color: var(--color-text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-                                            mike.j@example.com</div>
-                                        <div style="text-align: center; font-weight: 600; white-space: nowrap;">8</div>
-                                        <div style="text-align: center;">
-                                            <span class="card-badge badge-primary"
-                                                style="background: #F39C12; color: white; white-space: nowrap; display: inline-block;">Pending</span>
-                                        </div>
-                                        <div style="text-align: center;">
-                                            <button class="btn btn-secondary btn-sm"
-                                                style="padding: 0.25rem 0.75rem; font-size: 0.75rem; white-space: nowrap;">Edit</button>
+                                        style="background: var(--color-bg); padding: 0.5rem; border-radius: var(--radius-sm); text-align: center;">
+                                        <div style="font-weight: 600; font-size: 1.125rem; color: #27AE60;">Active</div>
+                                        <div style="font-size: 0.75rem; color: var(--color-text-secondary);">Status
                                         </div>
                                     </div>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span style="font-size: 0.75rem; color: var(--color-text-secondary);">Since Nov
+                                        2024</span>
+                                    <button class="btn btn-outline btn-sm">Edit</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- User Card 3 -->
+                        <div class="card">
+                            <div class="card-body">
+                                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                                    <div
+                                        style="width: 48px; height: 48px; border-radius: 50%; background: var(--color-accent-cyan); color: white; display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">
+                                        MJ</div>
+                                    <div>
+                                        <h3 style="font-size: 1.125rem; margin-bottom: 0.25rem;">Mike Johnson</h3>
+                                        <div style="font-size: 0.875rem; color: var(--color-text-secondary);">
+                                            mike.j@example.com</div>
+                                    </div>
+                                </div>
+                                <div
+                                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                                    <div
+                                        style="background: var(--color-bg); padding: 0.5rem; border-radius: var(--radius-sm); text-align: center;">
+                                        <div style="font-weight: 600; font-size: 1.125rem;">8</div>
+                                        <div style="font-size: 0.75rem; color: var(--color-text-secondary);">Exams</div>
+                                    </div>
+                                    <div
+                                        style="background: var(--color-bg); padding: 0.5rem; border-radius: var(--radius-sm); text-align: center;">
+                                        <div style="font-weight: 600; font-size: 1.125rem; color: #F39C12;">Pending
+                                        </div>
+                                        <div style="font-size: 0.75rem; color: var(--color-text-secondary);">Status
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span style="font-size: 0.75rem; color: var(--color-text-secondary);">Since Oct
+                                        2024</span>
+                                    <button class="btn btn-outline btn-sm">Edit</button>
                                 </div>
                             </div>
                         </div>
@@ -1084,13 +1137,13 @@
                 link.addEventListener('click', function (e) {
                     e.preventDefault();
                     const targetId = this.getAttribute('href');
-                    
+
                     // Update active state
                     updateActiveNav(targetId);
-                    
+
                     // Smooth scroll to section
                     smoothScrollTo(targetId);
-                    
+
                     // Close side panel on mobile after navigation
                     if (window.innerWidth <= 1023) {
                         closeSidePanel();
@@ -1101,13 +1154,13 @@
                 link.addEventListener('touchstart', function (e) {
                     e.preventDefault();
                     const targetId = this.getAttribute('href');
-                    
+
                     // Update active state
                     updateActiveNav(targetId);
-                    
+
                     // Smooth scroll to section
                     smoothScrollTo(targetId);
-                    
+
                     // Close side panel on mobile after navigation
                     if (window.innerWidth <= 1023) {
                         closeSidePanel();
@@ -1134,7 +1187,7 @@
                     userView.style.display = 'block';
                     adminView.style.display = 'none';
                     if (dropdownBtnText) dropdownBtnText.textContent = 'GoTo';
-                    
+
                     // Show user navigation, hide admin navigation
                     if (userSideNav) userSideNav.style.display = 'block';
                     if (adminSideNav) adminSideNav.style.display = 'none';
@@ -1142,7 +1195,7 @@
                     userView.style.display = 'none';
                     adminView.style.display = 'block';
                     if (dropdownBtnText) dropdownBtnText.textContent = 'GoTo';
-                    
+
                     // Show admin navigation, hide user navigation
                     if (userSideNav) userSideNav.style.display = 'none';
                     if (adminSideNav) adminSideNav.style.display = 'block';
@@ -1190,11 +1243,11 @@
 
                 // Save preference
                 localStorage.setItem('dashboardView', viewType);
-                
+
                 // Reset navigation active states
                 const allLinks = document.querySelectorAll('.side-panel-nav-link');
                 allLinks.forEach(link => link.classList.remove('active'));
-                
+
                 // Set first link as active for the current view
                 const firstActiveLink = document.querySelector(`#${isUser ? 'userSideNav' : 'adminSideNav'} .side-panel-nav-link`);
                 if (firstActiveLink) {
